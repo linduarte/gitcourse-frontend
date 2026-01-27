@@ -7,10 +7,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git Add</title>
-    <link rel="stylesheet" href="/app/static/css/components/style.css">
-    <link rel="stylesheet" href="/app/static/css/common-styles.css">
-    <link rel="stylesheet" href="/app/static/css/git-course.css">
-    <link rel="stylesheet" href="/app/static/css/git-add.css">
+    <link rel="stylesheet" href="/static/css/components/style.css">
+    <link rel="stylesheet" href="/static/css/common-styles.css">
+    <link rel="stylesheet" href="/static/css/git-course.css">
+    <link rel="stylesheet" href="/static/css/git-add.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -51,7 +51,7 @@
         });
     });
     </script>
-    <script src="/app/static/js/config.js"></script>
+    <script src="/static/js/config.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         const token = localStorage.getItem('access_token');
@@ -84,7 +84,7 @@
                 <li class="li-large">Verifique pelo Windows Explorer a estrutura agora completa do repositório.</li>
             </ol>
 
-            <img src="/app/static/images/git-status-after-copy.webp" alt="Imagem ...">
+            <img src="/static/images/git-status-after-copy.webp" alt="Imagem ...">
             <p class="image-description">Esta imagem mostra usando o comando <code class="language-bash">git status</code> que representa como os arquivos do repositório estão em relação ao Git, ou seja em vermelho,
             que os arquivos não estão sendo rastreados pelo git, "untracked", indica que se use o comando <code class="language-bash">git add</code>
             para mudar o status dos arquivos. Sinaliza mais embaixo dizendo que nada foi adicionado para a realização do "commit".
@@ -101,7 +101,7 @@
         </ul>
         <div class="note">
             <strong>Nota:</strong> O comando <code class="language-bash">git add .</code> adiciona todos os arquivos. Use <code class="language-bash">git add &lt;arquivo&gt;</code> para adicionar arquivos específicos.
-            <img src="/app/static/images/git%20add_all.webp" alt="Imagem GitGraph">
+            <img src="/static/images/git%20add_all.webp" alt="Imagem GitGraph">
             <p class="image-description">Na imagem anterior podemos notar a aplicação do comando 'git add' em duas situações - na primeira aplicado na
                 pasta 'style' contendo 4 arquivos e no segundo comando 'git add' aplicado usando o curinga '*' para aplicar em todos os arquivos com extensão 'html'.
                 Ao se aplicar o comando <strong>git status</strong> observa-se que todos os arquivos foram 'staged', ou seja prontos para receberem a confirmação via o comando <strong>git commit</strong>.
@@ -135,7 +135,7 @@
             <div class="footer-badges">
                 <a href="https://pages.github.com/" class="github-link">
                     <span>🐙 GitHub Pages</span>
-                <img src="/app/static/images/github-mark-white.png"
+                <img src="/static/images/github-mark-white.png"
                          alt="GitHub Logo"
                          class="footer-logo" width="16" height="16">
                 </a>
@@ -146,7 +146,7 @@
                 </a>
             </div>
       </footer>
-    <script src="/app/static/js/git-course-functions.js"></script>
+    <script src="/static/js/git-course-functions.js"></script>
     <script>Prism.highlightAll();</script>
     </div>
 </body>
