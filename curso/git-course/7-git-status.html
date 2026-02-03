@@ -8,16 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git Status</title>
     <link rel="stylesheet" href="/static/css/components/style.css">
-    <link rel="stylesheet" href="/static/css/common-styles.css">
-    <link rel="stylesheet" href="/static/css/git-course.css">
-    <link rel="stylesheet" href="/static/css/git-status.css">
+    <link rel="stylesheet" href="/static/css/components/common-styles.css">
+    <link rel="stylesheet" href="/static/css/pages/git-course.css">
+    <link rel="stylesheet" href="/static/css/pages/git-status.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
-
+    
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         const btn = document.getElementById("markCompletedButton");
@@ -122,7 +120,7 @@
 
                 <div class="footer-buttons">
                     <button id="logoutButton" type="button" class="logout-button">Logout</button>
-                    <button type="button" id="markCompletedButton" data-topic-id="4" class="form-btn">Concluído ✓</button>
+                    <button type="button" id="markCompletedButton" data-topic-id="7" class="form-btn">Concluído ✓</button>
                 </div>
             </div>
 
@@ -144,9 +142,14 @@
                 </a>
             </div>
       </footer>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
+    <script>Prism.highlightAll();</script>  
     <script src="/static/js/git-course-functions.js"></script>
     </div>
-    <script>Prism.highlightAll();</script>
+    
 </body>
 </html>
 
