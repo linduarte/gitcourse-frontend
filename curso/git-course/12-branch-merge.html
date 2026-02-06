@@ -5,16 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Branch - Parte 2</title>
     <link rel="stylesheet" href="/static/css/components/style.css">
-    <link rel="stylesheet" href="/static/css/common-styles.css">
-    <link rel="stylesheet" href="/static/css/git-course.css">
-    <link rel="stylesheet" href="/static/css/branch-2.css">
+    <link rel="stylesheet" href="/static/css/components/common-styles.css">
+    <link rel="stylesheet" href="/static/css/pages/git-course.css">
+    <link rel="stylesheet" href="/static/css/pages/branch-merge.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({ startOnLoad: true });
-    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
     <script src="/static/js/config.js"></script>
     <script>
@@ -35,7 +32,7 @@
     });
     </script>
 </head>
-<body>
+<body class="intro-page">
     <div class="container">
         <h1>O que é um 'branch' (ramo)? - Parte 2</h1>
     <nav class="styled-nav" aria-label="Navegação principal do tópico">
@@ -65,7 +62,7 @@
            <p class="p-styled spaced-p">Como você pode ver na lista, o conteúdo do diretório de trabalho foi restaurado. O diretório de estilo está de volta, contendo todos os arquivos CSS.
             As referências de estilo no código HTML não mudaram. Teste o site em um navegador para verificar se está funcionando corretamente.</p>
 
-            <p class="p-styled spaced-p"><strong>Como isto é possivel?</strong></p>
+            <p class="p-styled spaced-p"><strong>Como isso é possível?</strong></p>
 
             <p class="p-styled spaced-p">Toda vez que você troca de branch, o Git busca no banco de dados do repositório o conteúdo do diretório de trabalho do último commit daquela branch.</p>
 
@@ -78,19 +75,19 @@
               último commit da especial2:</p>
 
 
-            <img src="/static/images/git_diagram_a.webp" alt="Diagrama mostrando a posição do HEAD pelo último comite" class="img-halfwidth" width="600" height="338">
+            <img src="/static/images/git_diagram_a.webp" alt="Diagrama mostrando a posição do HEAD pelo último commit" class="img-halfwidth" width="600" height="338">
 
             <p class="p-styled spaced-p">Na imagem anterior a linha representa o ramo principal, 'main' com
-                cada comite mostrado como um círculo. A seta indica a direção do desenvolvimento, ou seja 'HEAD' e aponta para o último comite.
-                O último comite é o comite mais recente. O comite mais recente é o comite que está no topo da pilha de comites. De baixo para cima como pode-se ver na imagem abaixo do git log.
+                cada commit mostrado como um círculo. A seta indica a direção do desenvolvimento, ou seja 'HEAD' e aponta para o último commit.
+                O último commit é o commit mais recente. O commit mais recente é o commit que está no topo da pilha de commits. De baixo para cima como pode ser visto na imagem abaixo do git log.
             </p>
-                <img src="/static/images/git_diagram_b.webp" alt="Tela mostrando o histórico de comites realizados" class="img-fullwidth">
+                <img src="/static/images/git_diagram_b.webp" alt="Tela mostrando o histórico de commits realizados" class="img-fullwidth">
 
             <p class="p-styled spaced-p">Após o comando <code class="language-bash">git checkout main</code>, o ponteiro HEAD se move para o último commit na branch main e o conteúdo do diretório
                 de trabalho muda de acordo.</p>
 
 
-                <img src="/static/images/git-branch_2.webp" alt="Tela mostrando o histórico de comites realizados" class="img-fullwidth">
+                <img src="/static/images/git-branch_2.webp" alt="Tela mostrando o histórico de commits realizados" class="img-fullwidth">
               <img src="/static/images/branch_ghi_jkl.webp" alt="Tela mostrando dois novos branches (ghi - jkl)" class="img-fullwidth">
                 <img src="/static/images/checkout-ghi.webp" alt="Tela mostrando git checkout g-h-i" class="img-fullwidth">
                 <img src="/static/images/added_G.webp" alt="Tela mostrando letra G adicionada e comitada" class="img-fullwidth">
@@ -149,7 +146,7 @@
             <img src="/static/images/git_checkout_main.webp" alt="Tela mostrando o git checkout main" class="img-full">
 
 
-            <p class="p-styled spaced-p">Agora navegue no site fonético e você vai ver que ainda está na letra F. Isso vai mudar assim que tivermos mesclado as alterações
+            <p class="p-styled spaced-p">Ao oltar para a branch main, o site volta a exibir a letra F, pois as alterações feitas na branch g‑h‑i ainda não foram mescladas.
                 do branch g-h-i. O comando <code class="language-bash">git merge</code> permite que você integre linhas do tempo de desenvolvimento separadas em um único branch.
                 Para incorporar o recurso que você implementou no branch g-h-i ao  ramo (branch) main, só precisamos executar o seguinte comando:</p>
 
@@ -306,13 +303,13 @@
 
             <div class="footer-flex">
                 <nav class="footer-nav" aria-label="Navegação do rodapé">
-                    <a href="11-branch-1.html" class="footer-link">← Voltar</a>
-                    <a href="12-git-diff.html" class="footer-link">Próximo: git-diff →</a>
+                    <a href="11-branch.html" class="footer-link">← Voltar</a>
+                    <a href="13-git-diff.html" class="footer-link">Próximo: git-diff →</a>
                 </nav>
 
                 <div class="footer-buttons">
                     <button id="logoutButton" type="button" class="logout-button">Logout</button>
-                    <button type="button" id="markCompletedButton" data-topic-id="4" class="form-btn">Concluído ✓</button>
+                    <button type="button" id="markCompletedButton" data-topic-id="12" class="form-btn">Concluído ✓</button>
                 </div>
             </div>
 
@@ -334,10 +331,17 @@
                 </a>
             </div>
         </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
+    <script>Prism.highlightAll();</script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>    
     <script src="/static/js/git-course-functions.js"></script>
     <!-- handler moved to shared js: attachMarkCompletedHandler() -->
     </div>
-    <script>Prism.highlightAll();</script>
+    
 </body>
 </html>
 

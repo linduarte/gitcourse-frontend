@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Git Workflows</title>
     <link rel="stylesheet" href="/static/css/components/style.css">
-    <link rel="stylesheet" href="/static/css/common-styles.css">
-    <link rel="stylesheet" href="/static/css/git-course.css">
-    <link rel="stylesheet" href="/static/css/git-workflows.css">
+    <link rel="stylesheet" href="/static/css/components/common-styles.css">
+    <link rel="stylesheet" href="/static/css/pages/git-course.css">
+    <link rel="stylesheet" href="/static/css/pages/git-workflows.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    
 
     <script src="/static/js/config.js"></script>
     <script>
@@ -31,7 +33,9 @@
     });
     </script>
 </head>
-<body>
+
+<body class="intro-page">
+
     <div class="container">
         <h1>O que são Git Workflows?</h1>
         <p class="p-styled spaced-p">Os Git workflows são um conjunto de práticas e padrões utilizados para gerenciar o desenvolvimento de software usando o sistema de controle
@@ -340,12 +344,12 @@
 
             <div class="footer-flex">
                 <nav class="footer-nav">
-                    <a href="14-git-init.html" class="footer-link">← Voltar</a>
+                    <a href="15-git-init.html"class="footer-link">← Voltar</a>
                 </nav>
 
                 <div class="footer-buttons">
                     <button id="logoutButton" type="button" class="logout-button">Logout</button>
-                    <button type="button" id="markCompletedButton" data-topic-id="4" class="form-btn">Concluído ✓</button>
+                    <button type="button" id="markCompletedButton" data-topic-id="16 class="form-btn">Concluído ✓</button>
                 </div>
             </div>
 
@@ -367,10 +371,12 @@
                 </a>
             </div>
             </footer>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
+        <script>Prism.highlightAll();</script>
         <script src="/static/js/git-course-functions.js"></script>
         <!-- handler moved to shared js: attachMarkCompletedHandler() -->
     </div>
-    <script>Prism.highlightAll();</script>
 </body>
 </html>
 

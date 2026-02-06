@@ -22,7 +22,7 @@
         const token = localStorage.getItem('access_token');
         if (!token) {
             window.location.href = '/landing.html';
-            return;
+            return;16-git-workflows.html
         }
         const logoutBtn = document.getElementById('logoutButton');
         if (logoutBtn) {

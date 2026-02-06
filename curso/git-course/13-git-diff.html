@@ -5,19 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Git Diff</title>
     <link rel="stylesheet" href="/static/css/components/style.css">
-    <link rel="stylesheet" href="/static/css/common-styles.css">
-    <link rel="stylesheet" href="/static/css/git-course.css">
-    <link rel="stylesheet" href="/static/css/git-diff.css">
+    <link rel="stylesheet" href="/static/css/components/common-styles.css">
+    <link rel="stylesheet" href="/static/css/pages/git-course.css">
+    <link rel="stylesheet" href="/static/css/pages/git-diff.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({ startOnLoad: true });
-    </script>
+    
 
     <!-- handler moved to shared js: attachMarkCompletedHandler() -->
     <script src="/static/js/config.js"></script>
@@ -294,13 +289,13 @@
 
             <div class="footer-flex">
                 <nav class="footer-nav">
-                    <a href="11-branch-2.html" class="footer-link">← Voltar</a>
-                    <a href="13-undo-changes.html" class="footer-link">Próximo: undo-changes →</a>
+                    <a href="12-branch-merge.html" class="footer-link">← Voltar</a>
+                    <a href="14-undo-changes.html" class="footer-link">Próximo: undo-changes →</a>
                 </nav>
 
                 <div class="footer-buttons">
                     <button id="logoutButton" type="button" class="logout-button">Logout</button>
-                    <button type="button" id="markCompletedButton" data-topic-id="4" class="form-btn">Concluído ✓</button>
+                    <button type="button" id="markCompletedButton" data-topic-id="13" class="form-btn">Concluído ✓</button>
                 </div>
             </div>
 
@@ -322,8 +317,15 @@
                 </a>
             </div>
         </footer>
-    <script src="/static/js/git-course-functions.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
     <script>Prism.highlightAll();</script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>    
+    <script src="/static/js/git-course-functions.js"></script>
+    
     </div>
 </body>
 </html>

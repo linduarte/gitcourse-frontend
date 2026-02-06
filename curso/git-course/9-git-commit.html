@@ -8,19 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git Commit</title>
     <link rel="stylesheet" href="/static/css/components/style.css">
-    <link rel="stylesheet" href="/static/css/common-styles.css">
-    <link rel="stylesheet" href="/static/css/git-course.css">
-    <link rel="stylesheet" href="/static/css/git-commit.css">
+    <link rel="stylesheet" href="/static/css/components/common-styles.css">
+    <link rel="stylesheet" href="/static/css/pages/git-course.css">
+    <link rel="stylesheet" href="/static/css/pages/git-commit.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({ startOnLoad: true });
-    </script>
+    
+
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -147,7 +143,7 @@
 
             <img src="/static/images/git-push.webp" alt="Tela mostrando o 'git push origin main'" class="img-full">
 
-        <p class="p-styled  spaced-p">Caso voce faça o login on seu GitHub terá a visão mostrada na imagem abaixo.</p>
+        <p class="p-styled  spaced-p">Caso você faça o login on seu GitHub terá a visão mostrada na imagem abaixo.</p>
 
             <img src="/static/images/github_view.webp" alt="Tela mostrando o repositório no GitHub após o comando 'git push' ser acionado." class="img-full">
 
@@ -193,12 +189,12 @@
             <div class="footer-flex">
                 <nav class="footer-nav">
                     <a href="8-git-add.html" class="footer-link">← Voltar</a>
-                    <a href="10-feature_req.html" class="footer-link">Próximo:feature_req →</a>
+                    <a href="10-feature_req.html" class="footer-link">Próximo:10-feature_req.html →</a>
                 </nav>
 
                 <div class="footer-buttons">
                     <button id="logoutButton" type="button" class="logout-button">Logout</button>
-                    <button type="button" id="markCompletedButton" data-topic-id="4" class="form-btn">Concluído ✓</button>
+                    <button type="button" id="markCompletedButton" data-topic-id="9" class="form-btn">Concluído ✓</button>
                 </div>
             </div>
 
@@ -220,6 +216,12 @@
                 </a>
             </div>
       </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>  
     <script src="/static/js/git-course-functions.js"></script>
     <script>Prism.highlightAll();</script>
     </div>
