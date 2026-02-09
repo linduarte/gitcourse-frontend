@@ -293,12 +293,23 @@ body {
         padding: 25px;
     }
 
-    .footer-flex {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
+    .footer {
+        background-color: rgba(234, 216, 231, 0.8);
+        box-shadow: 0 8px 32px 0 rgba(31,38,135,0.25);
+        height: 200px;
+        border-radius: 12px;
+        padding: 20px;
+        margin-top: 40px;
     }
 
+    .footer-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+    
     .footer-nav {
         justify-content: center;
     }
