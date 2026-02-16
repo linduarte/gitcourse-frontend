@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Prefácio - Git Course</title>
 
-    <link rel="stylesheet" href="/static/css/components/style.css">
-    <link rel="stylesheet" href="/static/css/components/common-styles.css">
-    <link rel="stylesheet" href="/static/css/pages/git-course.css">
-    <link rel="stylesheet" href="/static/css/pages/prefacio.css">
+    <link rel="stylesheet" href="/assets/css/gitcourse.css">
+    <link rel="stylesheet" href="/assets/css/gitcourse-pre.css">
 
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
+
+    
+    
     <script src="/app/static/js/config.js"></script>
 
     <script>
@@ -87,9 +90,9 @@
     </script>
 </head>
 
-<body class="intro-page">
+<body class="prefacio">
 
-<div class="course-container">
+<div class="container">
 
     <div class="welcome-header">
         <h1 data-test="course-heading">🎉 Bem-vindo ao Curso de Git!</h1>
@@ -145,41 +148,48 @@
         </div>
     </div>
 
+
+
     <!-- ============================
              FOOTER
     ============================= -->
     <footer class="footer">
 
-        <div class="footer-flex">
-            <nav class="footer-nav">
-                <a href="/landing.html" class="footer-link">Voltar</a>
-            </nav>
+    <div class="footer-copyright">
+        © 2025 Curso de Git. Todos os direitos reservados.
+    </div>
 
-            <div class="footer-buttons">
-                <button id="logoutButton" type="button" class="logout-button">Logout</button>
-            </div>
+    <div class="footer-flex">
+        <nav class="footer-nav">
+            <a href="index.html" class="footer-link">← Voltar</a>
+            <a href="2-introduction.html" class="footer-link">Próximo: Introdução →</a>
+        </nav>
+
+        <div class="footer-buttons">
+            <button id="logoutButton" type="button" class="btn-footer-primary">Logout</button>
+            <button type="button" id="markCompletedButton" data-topic-id="1" class="btn-footer-primary">
+                Concluído ✓
+            </button>
         </div>
+    </div>
 
-        <div class="footer-instruction">
-            Para sair da sua conta, clique em Logout.
-        </div>
+    <div class="footer-instruction">
+        Para sair da sua conta, clique em Logout. Para registrar seu progresso, clique em Concluído.
+    </div>
 
-        <div class="footer-badges">
-            <a href="https://pages.github.com/" class="github-link">
-                <span>🐙 GitHub Pages</span>
-                <img src="/static/images/github-mark-white.png" alt="GitHub Logo" class="footer-logo">
-            </a>
+    <div class="footer-badges">
+        <a href="https://pages.github.com/" class="github-link">
+            <span>🐙 GitHub Pages</span>
+            <img src="/static/images/github-mark-white.png" alt="GitHub Logo" class="footer-logo">
+        </a>
 
-            <a href="https://jigsaw.w3.org/css-validator/check/referer" class="w3c-link">
-                <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS válido!" class="footer-logo" width="45" height="16">
-            </a>
-        </div>
+        <a href="https://jigsaw.w3.org/css-validator/check/referer" class="w3c-link">
+            <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS válido!" class="footer-logo" width="45" height="16">
+        </a>
+    </div>
 
-        <div class="footer-copyright">
-            © 2025 Curso de Git. Todos os direitos reservados.
-        </div>
+</footer>
 
-    </footer>
 
 </div>
 

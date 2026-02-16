@@ -9,11 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git Status</title>
 
-    <link rel="stylesheet" href="/static/css/components/style.css">
-    <link rel="stylesheet" href="/static/css/components/common-styles.css">
-    <link rel="stylesheet" href="/static/css/pages/git-course.css">
-    <link rel="stylesheet" href="/static/css/pages/git-status.css">
+    <link rel="stylesheet" href="/assets/css/gitcourse.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
+    
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -112,7 +111,9 @@
         que permite visualizar exatamente o que está acontecendo com os arquivos do seu repositório.
     </p>
 
-    <img src="/static/images/git-status.webp" alt="Exemplo do comando git status mostrando arquivos untracked" class="img-full">
+    <img src="/static/images/git-status.webp" 
+         alt="Exemplo do comando git status mostrando arquivos untracked" 
+         class="img-full">
 
     <p class="image-description">
         A imagem mostra arquivos não rastreados (untracked) e indica que nenhum arquivo está preparado para commit.
@@ -122,9 +123,8 @@
     <p class="p-styled spaced-p">
         A imagem anterior apresenta uma coleção de arquivos não rastreados. Ao utilizar o comando
         <code class="language-bash">git add</code>, podemos selecionar esses arquivos para serem preparados e incluídos no próximo commit,
-        permitindo um controle mais organizado e eficiente das alterações realizadas no projeto.
+        permitindo um controle  mais organizado e eficiente das alterações realizadas no projeto. 
     </p>
-
 
 
 <!-- ============================
@@ -138,13 +138,15 @@
 
     <div class="footer-flex">
         <nav class="footer-nav">
-            <a href="6-git-status.html" class="footer-link">← Voltar</a>
+            <a href="6-git-clone.html" class="footer-link">← Voltar</a>
             <a href="8-git-add.html" class="footer-link">Próximo: git add →</a>
         </nav>
 
         <div class="footer-buttons">
-            <button id="logoutButton" type="button" class="logout-button">Logout</button>
-            <button type="button" id="markCompletedButton" data-topic-id="7" class="form-btn">Concluído ✓</button>
+            <button id="logoutButton" type="button" class="btn-footer-primary">Logout</button>
+            <button type="button" id="markCompletedButton" data-topic-id="7" class="btn-footer-primary">
+                Concluído ✓
+            </button>
         </div>
     </div>
 
@@ -164,6 +166,7 @@
     </div>
 
 </footer>
+
 
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>

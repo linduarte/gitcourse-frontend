@@ -9,10 +9,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Introdução - Git Course</title>
 
-    <link rel="stylesheet" href="/static/css/components/style.css">
-    <link rel="stylesheet" href="/static/css/components/common-styles.css">
-    <link rel="stylesheet" href="/static/css/pages/git-course.css">
-    <link rel="stylesheet" href="/static/css/pages/introduction.css">
+    <link rel="stylesheet" href="/assets/css/gitcourse.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
+    
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,7 +91,10 @@
         Ele permite executar comandos Git de forma prática e eficiente, simulando um ambiente Unix dentro do Windows.
     </p>
 
-    <img src="/static/images/pict_contr_versao.webp" alt="Representação visual das funções do Git" class="img-centered">
+    <img src="/static/images/pict_contr_versao.webp"
+     alt="Representação visual das funções do Git"
+     class="img-full">
+
 
     <h4>Como adicionar o Git Bash ao Terminal do Windows</h4>
 
@@ -105,68 +108,84 @@
             </ul>
         </li>
 
-        <li>
-            Instale o Git para Windows:
-            <ul>
-                <li>
-                    Baixe o instalador neste
-                    <a href="https://git-scm.com/downloads/win">link</a> e siga as imagens abaixo para concluir a instalação.
-                </li>
-            </ul>
-        </li>
-    </ol>
+        <ol>
+    <li>
+        Instale o Git para Windows:
+        <ul>
+            <li>
+                Baixe o instalador neste
+                <a href="https://git-scm.com/downloads/win">link</a> e siga as imagens abaixo para concluir a instalação.
+            </li>
+        </ul>
+    </li>
+</ol>
 
-    <img src="/static/images/git-install.webp" alt="Instalação do Git para Windows" class="img-full">
-    <img src="/static/images/git-install-a.webp" alt="Etapa da instalação do Git" class="img-full">
-    <img src="/static/images/git-install-b.webp" alt="Configurações da instalação do Git" class="img-full">
-    <img src="/static/images/git-install-c.webp" alt="Finalização da instalação do Git" class="img-full">
+<img src="/static/images/git-install.webp" 
+     alt="Instalação do Git para Windows" 
+     class="img-full">
 
-    <p class="p-styled spaced-p">
-        As imagens acima mostram as opções recomendadas durante a instalação do Git no Windows.
+<img src="/static/images/git-install-a.webp" 
+     alt="Etapa da instalação do Git" 
+     class="img-full">
+
+<img src="/static/images/git-install-b.webp" 
+     alt="Configurações da instalação do Git" 
+     class="img-full">
+
+<img src="/static/images/git-install-c.webp" 
+     alt="Finalização da instalação do Git" 
+     class="img-full">
+
+<p class="p-styled spaced-p">
+    As imagens acima mostram as opções recomendadas durante a instalação do Git no Windows.
+</p>
+
+<p class="p-styled spaced-p">
+    Após a instalação, o Git Bash estará disponível no Terminal do Windows, como mostrado abaixo:
+</p>
+
+<img src="/static/images/bash_terminal.webp" 
+     alt="Terminal Windows com Git Bash" 
+     class="img-full">
+
+<p class="p-styled spaced-p">
+    A imagem abaixo mostra o mesmo Bash personalizado com o tema <strong>Oh My Posh</strong>:
+</p>
+
+<img src="/static/images/bash-oh-my-posh.webp" 
+     alt="Terminal Windows com Git Bash personalizado com Oh My Posh" 
+     class="img-full">
+
+<p class="p-styled spaced-p">
+    Na página inicial do curso, apresentamos as definições fundamentais do Git.
+</p>
+
+<p class="p-styled spaced-p">
+    Seguiremos um roteiro baseado no livro <strong>"Practical Guide to Git and GitHub For Windows Users"</strong>, de Roberto Vormittag.
+</p>
+
+<p class="p-styled spaced-p">
+    Este curso adota a mesma filosofia do livro, com explicações claras e exemplos práticos.
+</p>
+
+<p class="p-styled spaced-p">
+    Também utilizaremos representações visuais dos comandos Git, alinhadas às imagens dos terminais.
+</p>
+
+<section class="terminal-custom-box">
+    <h2>Melhore seu Ambiente de Desenvolvimento</h2>
+
+    <p class="p-styled">
+        Antes de avançar no curso, recomendamos que você conheça nossa página especial sobre 
+        <strong>customização do terminal com Oh My Posh</strong>.  
+        Ela mostra como transformar o terminal padrão em uma ferramenta mais clara, moderna e produtiva.
     </p>
 
-    <p class="p-styled spaced-p">
-        Após a instalação, o Git Bash estará disponível no Terminal do Windows, como mostrado abaixo:
-    </p>
+    <a href="terminal-customization.html" class="btn-footer-primary">
+        Ver Customização do Terminal
+    </a>
+</section>
 
-    <img src="/static/images/bash_terminal.webp" alt="Terminal Windows com Git Bash" class="img-full">
-
-    <p class="p-styled spaced-p">
-        A imagem abaixo mostra o mesmo Bash personalizado com o tema <strong>Oh My Posh</strong>:
-    </p>
-
-    <img src="/static/images/bash-oh-my-posh.webp" alt="Terminal Windows com Git Bash personalizado com Oh My Posh" class="img-full">
-
-    <p class="p-styled spaced-p">
-        Na página inicial do curso, apresentamos as definições fundamentais do Git.
-    </p>
-
-    <p class="p-styled spaced-p">
-        Seguiremos um roteiro baseado no livro <strong>"Practical Guide to Git and GitHub For Windows Users"</strong>, de Roberto Vormittag.
-    </p>
-
-    <p class="p-styled spaced-p">
-        Este curso adota a mesma filosofia do livro, com explicações claras e exemplos práticos.
-    </p>
-
-    <p class="p-styled spaced-p">
-        Também utilizaremos representações visuais dos comandos Git, alinhadas às imagens dos terminais.
-    </p>
-
-    <!-- Link para a página de customização do terminal -->
-    <section style="margin-top: 40px; padding: 20px; background: #f7f7f7; border-radius: 8px;">
-        <h2 style="margin-bottom: 10px;">Melhore seu Ambiente de Desenvolvimento</h2>
-        <p style="font-size: 1.1rem; line-height: 1.6;">
-            Antes de avançar no curso, recomendamos que você conheça nossa página especial sobre 
-            <strong>customização do terminal com Oh My Posh</strong>.  
-            Ela mostra como transformar o terminal padrão em uma ferramenta mais clara, moderna e produtiva.
-        </p>
-    
-        <a href="terminal-customization.html"
-           style="display: inline-block; margin-top: 15px; padding: 12px 24px; background: #0078d4; color: white; border-radius: 6px; text-decoration: none;">
-            Ver Customização do Terminal
-        </a>
-    </section>
 
 
 <!-- ============================
@@ -185,9 +204,11 @@
         </nav>
 
         <div class="footer-buttons">
-            <button id="logoutButton" type="button" class="logout-button">Logout</button>
-            <button type="button" id="markCompletedButton" data-topic-id="2" class="form-btn">Concluído ✓</button>
+            <button id="logoutButton" type="button" class="btn-footer-primary">Logout</button>
+            <button type="button" id="markCompletedButton" data-topic-id="2" class="btn-footer-primary">Concluído ✓</button>
         </div>
+
+
     </div>
 
     <div class="footer-instruction">

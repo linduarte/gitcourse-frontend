@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Programa do Curso</title>
+
     <link rel="stylesheet" href="/static/css/components/style.css">
     <link rel="stylesheet" href="/static/css/components/common-styles.css">
     <link rel="stylesheet" href="/static/css/pages/git-course.css">
     <link rel="stylesheet" href="/static/css/pages/program.css">
+
     <script src="/static/js/config.js"></script>
+
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         const token = localStorage.getItem('access_token');
@@ -16,6 +19,7 @@
             window.location.href = '/landing.html';
             return;
         }
+
         const logoutBtn = document.getElementById('logoutButton');
         if (logoutBtn) {
             logoutBtn.addEventListener('click', (e) => {
@@ -27,27 +31,46 @@
     });
     </script>
 </head>
+
 <body>
+
     <div class="container">
+
         <h1 class="program-title">Programa do Curso</h1>
+
         <ul class="program-list">
-            <li><strong>Introdução ao Git:</strong> Instale o terminal do Windows,  instale o Git para Windows, adicione o Git bash ao terminal do Windows.</li>
-            <li><strong>Configuração básica do Git:</strong> Configuração de identidade, configuração de fim de linha,configuração de editor padrão,configuração de cores,diferença entre 'Global", "Local" e "System".</li>
-            <li><strong>Hospedagem - Projeto "Phonetic Website" :</strong> Criando repositórios e publicando projetos, criação de conta no GitHub, criação do repositório no GitHub</li>
-            <li><strong>Conectando Git ao GitHub: </strong> Verificando a existência de chave SSH, gerando a nova chave SSH, adicionando a chave SSH ao SSH-agent, adicionando a chave SSH à sua conta no GitHub, testando a conexão </li>
-            <li><strong>"git clone":</strong> Criação do repositório local, ponto de partida, configuração remota</li>
-            <li><strong>"git status":</strong>Estados dos arquivos no git </li>
-            <li><strong>"git commit":</strong> Definição de 'Hash", execução do comite, Uso do <code>git log </code>identificando o comite.</li>
-            <li><strong>"Feature request":</strong> Alteração dos arquivos no site, vendo a história do projeto pelo <code>git log</code>.</li>
-            <li><strong>Branch - 1 (ramo):</strong>Conhecendo o 'HEAD', Trabalhando com 'branches'(ramos), movendo, apagando e renomeando arquivos.</li>
-            <li><strong>"git diff":</strong>Comparando versões, como comparar mudanças nos seus arquivos, git diff verificando arquivos específicos, índice (Hashes das versões do arquivo ),
-                bloco de contexto, estado do repositório, vendo mudanças entre dois comites, obtendo os hashes usando o <code>git log</code>, comitar as pendências do "Feature request". </li>
-           <li><strong>Desfazendo alterações:</strong>Desfazendo as mudanças antes de adicioná-las ao "staged",desfazendo mudanças depois de adicioná-las ao "staged", desfazendo mudanças comitadas, marcando versões, visão detalhada do "Desfazer mudanças"</li>
-           <li><strong>"git init"</strong>Definição , iniciando um repositório (repo) com um nome específico para o ramo inicial</li>
-           <li><strong>"Git workflows" para iniciantes: </strong>Como o Git habilita metodologias ágeis, comandos básicos no git,comandos git que voce usa no dia-a-dia, fluxos de trabalho do git (git workflows)</li>
+
+            <li><strong>Introdução ao Git:</strong> Instalação do terminal do Windows, instalação do Git para Windows, adição do Git Bash ao terminal.</li>
+
+            <li><strong>Configuração básica do Git:</strong> Identidade, fim de linha, editor padrão, cores, diferença entre “Global”, “Local” e “System”.</li>
+
+            <li><strong>Hospedagem — Projeto “Phonetic Website”:</strong> Criação de repositórios, publicação de projetos, criação de conta no GitHub, criação do repositório remoto.</li>
+
+            <li><strong>Conectando Git ao GitHub:</strong> Verificação de chave SSH, geração de nova chave, adição ao SSH-agent, adição ao GitHub, teste de conexão.</li>
+
+            <li><strong>git clone:</strong> Criação do repositório local, ponto de partida, configuração remota.</li>
+
+            <li><strong>git status:</strong> Estados dos arquivos no Git.</li>
+
+            <li><strong>git commit:</strong> Definição de hash, execução do commit, uso do <code>git log</code> para identificar commits.</li>
+
+            <li><strong>Feature request:</strong> Alteração de arquivos no site, visualização da história do projeto com <code>git log</code>.</li>
+
+            <li><strong>Branch — Parte 1:</strong> HEAD, criação e manipulação de branches, mover, apagar e renomear arquivos.</li>
+
+            <li><strong>git diff:</strong> Comparação de versões, análise de mudanças, comparação entre commits, obtenção de hashes com <code>git log</code>, commit das pendências do Feature Request.</li>
+
+            <li><strong>Desfazendo alterações:</strong> Desfazer mudanças antes e depois do staged, desfazer commits, marcar versões, visão detalhada do processo.</li>
+
+            <li><strong>git init:</strong> Definição, criação de repositório, branch inicial personalizada.</li>
+
+            <li><strong>Git Workflows para iniciantes:</strong> Como o Git habilita metodologias ágeis, comandos básicos, comandos do dia a dia, fluxos de trabalho.</li>
+
         </ul>
+
         <footer class="site-footer">
             <p>&copy; 2025 Curso de Git. Todos os direitos reservados.</p>
+
             <div class="footer-badges">
                 <a href="https://pages.github.com/" class="github-link">
                     <span>🐙 GitHub Pages</span>
@@ -55,6 +78,7 @@
                          alt="GitHub Logo"
                          class="footer-logo" width="16" height="16">
                 </a>
+
                 <a href="https://jigsaw.w3.org/css-validator/check/referer" class="w3c-link">
                     <img src="https://jigsaw.w3.org/css-validator/images/vcss"
                          alt="CSS válido!"
@@ -62,7 +86,8 @@
                 </a>
             </div>
         </footer>
+
     </div>
+
 </body>
 </html>
-

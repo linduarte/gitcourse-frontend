@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git Init</title>
 
-    <link rel="stylesheet" href="/static/css/components/style.css">
-    <link rel="stylesheet" href="/static/css/components/common-styles.css">
-    <link rel="stylesheet" href="/static/css/pages/git-course.css">
-    <link rel="stylesheet" href="/static/css/pages/git-init.css">
+    <link rel="stylesheet" href="/assets/css/gitcourse.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -61,7 +59,7 @@
             C --> D[Branch inicial: main]
     </div>
 
-    <img src="/static/images/git_init_red.webp" alt="Terminal mostrando o comando git init">
+    <img src="/static/images/git_init_red.webp" alt="Terminal mostrando o comando git init" class="img-full">
 
     <p class="image-description">
         A imagem mostra a criação de um diretório chamado <strong>projeto-a</strong> e a execução do comando
@@ -106,8 +104,10 @@
         </nav>
 
         <div class="footer-buttons">
-            <button id="logoutButton" type="button" class="logout-button">Logout</button>
-            <button type="button" id="markCompletedButton" data-topic-id="15" class="form-btn">Concluído ✓</button>
+            <button id="logoutButton" type="button" class="btn-footer-primary">Logout</button>
+            <button type="button" id="markCompletedButton" data-topic-id="15" class="btn-footer-primary">
+                Concluído ✓
+            </button>
         </div>
     </div>
 
@@ -118,14 +118,16 @@
     <div class="footer-badges">
         <a href="https://pages.github.com/" class="github-link">
             <span>🐙 GitHub Pages</span>
-            <img src="/static/images/github-mark-white.png" alt="GitHub Logo" class="footer-logo" width="16" height="16">
+            <img src="/static/images/github-mark-white.png" alt="GitHub Logo" class="footer-logo">
         </a>
         <a href="https://jigsaw.w3.org/css-validator/check/referer" class="w3c-link">
-            <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS válido!" class="footer-logo" width="45" height="16">
+            <img src="https://jigsaw.w3.org/css-validator/images/vcss"
+                 alt="CSS válido!" class="footer-logo" width="45" height="16">
         </a>
     </div>
 
 </footer>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>

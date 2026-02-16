@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Git Workflows</title>
 
-    <link rel="stylesheet" href="/static/css/components/style.css">
-    <link rel="stylesheet" href="/static/css/components/common-styles.css">
-    <link rel="stylesheet" href="/static/css/pages/git-course.css">
-    <link rel="stylesheet" href="/static/css/pages/git-workflows.css">
+    <link rel="stylesheet" href="/assets/css/gitcourse.css">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,7 +51,7 @@
     <h4>Principais Tipos de Git Workflows</h4>
 
     <p class="p-styled spaced-p">
-        Existem vários workflows, cada um adequado a um tipo de projeto. Vamos explorar os mais usados.
+        Existem vários workflows, cada um adequado a um tipo de projeto. Vamos explorar os mais utilizados.
     </p>
 
     <!-- ============================================================
@@ -89,12 +87,12 @@
         <li><strong>hotfix</strong>: correções urgentes em produção.</li>
     </ul>
 
-    <p class="p-styled spaced-p"><strong>Exemplo real:</strong>  
+    <p class="p-styled spaced-p"><strong>Exemplo real:</strong><br>
         Uma empresa que lança versões a cada 30 dias usa o Git Flow para organizar features, correções e releases.
     </p>
 
-    <p class="p-styled spaced-p"><strong>Quando usar:</strong>  
-        Projetos com versões planejadas, equipes médias ou grandes, e pouca necessidade de deploy contínuo.
+    <p class="p-styled spaced-p"><strong>Quando usar:</strong><br>
+        Projetos com versões planejadas, equipes médias ou grandes e pouca necessidade de deploy contínuo.
     </p>
 
     <!-- ============================================================
@@ -122,11 +120,11 @@
         <li><strong>deploy contínuo</strong>: mudanças vão rapidamente para produção.</li>
     </ul>
 
-    <p class="p-styled spaced-p"><strong>Exemplo real:</strong>  
+    <p class="p-styled spaced-p"><strong>Exemplo real:</strong><br>
         Times que trabalham em sites com deploy várias vezes ao dia usam GitHub Flow.
     </p>
 
-    <p class="p-styled spaced-p"><strong>Quando usar:</strong>  
+    <p class="p-styled spaced-p"><strong>Quando usar:</strong><br>
         Projetos web, equipes pequenas e ambientes com CI/CD rápido.
     </p>
 
@@ -152,11 +150,11 @@
         <li><strong>environment branches</strong>: opcionais para QA ou homologação.</li>
     </ul>
 
-    <p class="p-styled spaced-p"><strong>Exemplo real:</strong>  
+    <p class="p-styled spaced-p"><strong>Exemplo real:</strong><br>
         Empresas com pipelines complexos e múltiplos ambientes usam GitLab Flow para organizar deploys.
     </p>
 
-    <p class="p-styled spaced-p"><strong>Quando usar:</strong>  
+    <p class="p-styled spaced-p"><strong>Quando usar:</strong><br>
         Projetos corporativos, times com CI/CD robusto e múltiplos ambientes.
     </p>
 
@@ -228,11 +226,8 @@
     </p>
 
     <pre><code class="language-bash">git init</code></pre>
-
     <pre><code class="language-bash">git add &lt;nome-do-arquivo&gt;</code></pre>
-
     <pre><code class="language-bash">git commit -m "Mensagem significativa"</code></pre>
-
     <pre><code class="language-bash">git push origin main</code></pre>
 
     <!-- ============================================================
@@ -254,11 +249,8 @@
     </p>
 
     <pre><code class="language-bash">git pull</code></pre>
-
     <pre><code class="language-bash">git add .</code></pre>
-
     <pre><code class="language-bash">git commit -m "Mensagem"</code></pre>
-
     <pre><code class="language-bash">git push</code></pre>
 
     <!-- ============================================================
@@ -279,11 +271,8 @@
     </p>
 
     <pre><code class="language-bash">git clone &lt;repo-url&gt;</code></pre>
-
     <pre><code class="language-bash">git checkout -b feature/minha-feature</code></pre>
-
     <pre><code class="language-bash">git commit -m "Implementa feature X"</code></pre>
-
     <pre><code class="language-bash">git push -u origin feature/minha-feature</code></pre>
 
     <!-- ============================================================
@@ -301,9 +290,7 @@
     </div>
 
     <pre><code class="language-bash">git clone &lt;fork-url&gt;</code></pre>
-
     <pre><code class="language-bash">git checkout -b feature/fix-bug</code></pre>
-
     <pre><code class="language-bash">git push origin feature/fix-bug</code></pre>
 
     <p class="p-styled spaced-p">
@@ -318,7 +305,6 @@
     </p>
 
 
-
 <!-- FOOTER -->
 <footer class="footer">
 
@@ -327,14 +313,18 @@
     </div>
 
     <div class="footer-flex">
+
         <nav class="footer-nav">
-            <a href="/progress.html" class="footer-link">← Voltar</a>
+            <!-- Sem botão de voltar ou próximo nesta página -->
         </nav>
 
         <div class="footer-buttons">
-            <button id="logoutButton" type="button" class="logout-button">Logout</button>
-            <button type="button" id="markCompletedButton" data-topic-id="16" class="form-btn">Concluído ✓</button>
+            <button id="logoutButton" type="button" class="btn-footer-primary">Logout</button>
+            <button type="button" id="markCompletedButton" data-topic-id="16" class="btn-footer-primary">
+                Concluído ✓
+            </button>
         </div>
+
     </div>
 
     <div class="footer-instruction">
@@ -344,14 +334,16 @@
     <div class="footer-badges">
         <a href="https://pages.github.com/" class="github-link">
             <span>🐙 GitHub Pages</span>
-            <img src="/static/images/github-mark-white.png" class="footer-logo">
+            <img src="/static/images/github-mark-white.png" alt="GitHub Logo" class="footer-logo">
         </a>
         <a href="https://jigsaw.w3.org/css-validator/check/referer" class="w3c-link">
-            <img src="https://jigsaw.w3.org/css-validator/images/vcss" class="footer-logo" width="45" height="16">
+            <img src="https://jigsaw.w3.org/css-validator/images/vcss"
+                 alt="CSS válido!" class="footer-logo" width="45" height="16">
         </a>
     </div>
 
 </footer>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
