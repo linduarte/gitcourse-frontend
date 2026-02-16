@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git Init</title>
+
     <link rel="stylesheet" href="/static/css/components/style.css">
     <link rel="stylesheet" href="/static/css/components/common-styles.css">
     <link rel="stylesheet" href="/static/css/pages/git-course.css">
     <link rel="stylesheet" href="/static/css/pages/git-init.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    
 
-    <!-- handler moved to shared js: attachMarkCompletedHandler() -->
     <script src="/static/js/config.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -33,75 +33,104 @@
         }
     });
     </script>
+
+    <!-- Mermaid -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({ startOnLoad: true });</script>
 </head>
+
 <body class="intro-page">
 
+<div class="container">
 
-    <div class="container">
-        <h1>git init</h1>
-        <pre><code class="language-bash">git init</code></pre>
-        <p class="p-styled spaced-p">O comando <code class="language-bash">git init</code> desempenha um papel crucial no universo do Git, um sistema de controle de versão distribuído amplamente utilizado para gerenciar código-fonte.
-            Esse comando é utilizado para criar um novo repositório Git vazio ou para reinicializar um já existente. Basicamente, ele configura as estruturas necessárias em um diretório
-            especificado para acompanhar e gerenciar as mudanças nos arquivos. Seja iniciando um novo projeto, migrando um projeto existente para um fluxo de trabalho Git ou
-            configurando um repositório para colaboração, o <code class="language-bash">git init</code> é geralmente a primeira etapa do processo.</p>
-    <img src="/static/images/git_init_red.webp" alt="Screenshot do comando git init">
-        <p class="image-description">A imagem acima mostra a criação de dois diretórios para o 'projeto-a'.
-             Ao acionar o comando <code class="language-bash">git init</code> o referido projeto passa a ser controlado pelo git.
-             Observa-se ainda que aparece em destaque um símbolo de um 'ramo' e o nome dado a ele é 'main'.
-             O ramo é mais conhecido tecnicamente como 'branch'. Desta forma temos a certeza que foi inicializado um repositório Git.</p>
+    <h1>git init</h1>
 
-        <h4>Definição</h4>
-        <p class="p-styled spaced-p">O <code class="language-bash">git init</code> cria um novo repositório Git vazio ou reinicializa um existente.
-           É o primeiro comando usado quando você quer começar a versionar um projeto.</p>
+    <pre><code class="language-bash">git init</code></pre>
 
-        <h4>Iniciando um repositório com um nome específico para o ramo inicial</h4>
-        <p class="p-styled spaced-p">Por padrão, o Git cria um branch chamado 'main' (ou 'master' em versões antigas).
-           Você pode especificar um nome diferente:</p>
-        <pre><code class="language-bash">git init --initial-branch=desenvolvimento</code></pre>
-        <pre><code class="language-bash">git init -b meu-branch-principal</code></pre>
+    <p class="p-styled spaced-p">
+        O comando <code class="language-bash">git init</code> é o ponto de partida para qualquer projeto versionado com Git.
+        Ele cria um novo repositório Git vazio no diretório atual ou reinicializa um repositório já existente.
+        A partir desse momento, o Git passa a acompanhar as mudanças nos arquivos, permitindo histórico,
+        controle de versões e colaboração.
+    </p>
 
-        <footer class="footer">
-            <div class="footer-copyright">
-                © 2025 Curso de Git. Todos os direitos reservados.
-            </div>
-
-            <div class="footer-flex">
-                <nav class="footer-nav">
-                    <a href="14-undo-changes.html" class="footer-link">← Voltar</a>
-                    <a href="16-git-workflows.html" class="footer-link">Próximo: git workflows →</a>
-                </nav>
-
-                <div class="footer-buttons">
-                    <button id="logoutButton" type="button" class="logout-button">Logout</button>
-                    <button type="button" id="markCompletedButton" data-topic-id="15"class="form-btn">Concluído ✓</button>
-                </div>
-            </div>
-
-            <div class="footer-instruction">
-                Para sair da sua conta, clique em Logout. Para registrar seu progresso, clique em Concluído.
-            </div>
-
-            <div class="footer-badges">
-                <a href="https://pages.github.com/" class="github-link">
-                    <span>🐙 GitHub Pages</span>
-                <img src="/static/images/github-mark-white.png"
-                         alt="GitHub Logo"
-                         class="footer-logo" width="16" height="16">
-                </a>
-                <a href="https://jigsaw.w3.org/css-validator/check/referer" class="w3c-link">
-                    <img src="https://jigsaw.w3.org/css-validator/images/vcss"
-                         alt="CSS válido!"
-                         class="footer-logo" width="45" height="16">
-                </a>
-            </div>
-        </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
-    <script>Prism.highlightAll();</script>    
-    <script src="/static/js/git-course-functions.js"></script>
-        <!-- handler moved to shared js: attachMarkCompletedHandler() -->
+    <div class="mermaid">
+        flowchart LR
+            A[Diretório comum] --> B[git init]
+            B --> C[Repositório Git criado]
+            C --> D[Branch inicial: main]
     </div>
-    
+
+    <img src="/static/images/git_init_red.webp" alt="Terminal mostrando o comando git init">
+
+    <p class="image-description">
+        A imagem mostra a criação de um diretório chamado <strong>projeto-a</strong> e a execução do comando
+        <code class="language-bash">git init</code>. Após o comando, o Git cria automaticamente a branch inicial
+        chamada <strong>main</strong> (ou <strong>master</strong> em versões antigas). O ícone de “ramo” indica que o
+        repositório foi inicializado com sucesso.
+    </p>
+
+    <h4>Definição</h4>
+
+    <p class="p-styled spaced-p">
+        O comando <code class="language-bash">git init</code> cria a estrutura interna necessária para que o Git
+        acompanhe alterações no projeto. É o primeiro passo para começar a versionar qualquer diretório.
+    </p>
+
+    <h4>Iniciando um repositório com um nome específico para a branch inicial</h4>
+
+    <p class="p-styled spaced-p">
+        Por padrão, o Git cria a branch inicial chamada <strong>main</strong>.  
+        Porém, você pode definir outro nome usando:
+    </p>
+
+    <pre><code class="language-bash">git init --initial-branch=desenvolvimento</code></pre>
+
+    <pre><code class="language-bash">git init -b meu-branch-principal</code></pre>
+
+    <p class="p-styled spaced-p">
+        Isso é útil quando sua equipe segue uma convenção específica para o nome da branch principal.
+    </p>
+
+
+<footer class="footer">
+
+    <div class="footer-copyright">
+        © 2025 Curso de Git. Todos os direitos reservados.
+    </div>
+
+    <div class="footer-flex">
+        <nav class="footer-nav">
+            <a href="14-undo-changes.html" class="footer-link">← Voltar</a>
+            <a href="16-git-workflows.html" class="footer-link">Próximo: Git Workflows →</a>
+        </nav>
+
+        <div class="footer-buttons">
+            <button id="logoutButton" type="button" class="logout-button">Logout</button>
+            <button type="button" id="markCompletedButton" data-topic-id="15" class="form-btn">Concluído ✓</button>
+        </div>
+    </div>
+
+    <div class="footer-instruction">
+        Para sair da sua conta, clique em Logout. Para registrar seu progresso, clique em Concluído.
+    </div>
+
+    <div class="footer-badges">
+        <a href="https://pages.github.com/" class="github-link">
+            <span>🐙 GitHub Pages</span>
+            <img src="/static/images/github-mark-white.png" alt="GitHub Logo" class="footer-logo" width="16" height="16">
+        </a>
+        <a href="https://jigsaw.w3.org/css-validator/check/referer" class="w3c-link">
+            <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS válido!" class="footer-logo" width="45" height="16">
+        </a>
+    </div>
+
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
+<script>Prism.highlightAll();</script>
+<script src="/static/js/git-course-functions.js"></script>
+
 </body>
 </html>
-

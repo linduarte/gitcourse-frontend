@@ -5,7 +5,7 @@
     display: block;
 }
         body {
-            background: url('/app/static/images/waves.webp') center/cover no-repeat fixed;
+            background: url('/static/images/waves.webp') center/cover no-repeat fixed;
             font-family: 'Victor Mono', monospace;
             margin: 0;
             padding: 0;

@@ -1,5 +1,5 @@
         body {
-            background: url('/app/static/images/waves.webp') center/cover no-repeat fixed;
+            background: url('/static/images/waves.webp') center/cover no-repeat fixed;
             font-family: 'Victor Mono', monospace;
             margin: 0;
             padding: 0;
@@ -14,6 +14,28 @@
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .table-container {
+        width: 100%;
+        overflow-x: auto;
+        margin: 20px 0;
+        padding: 10px 0;
+
+        }
+
+        .table-container {
+        width: 100%;
+        border-collapse: collapse;
+
+        }
+
+        le-container th,
+        .table-container td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+        white-space: nowrap;
         }
 
         .footer {
@@ -161,3 +183,10 @@
         /* Provide sensible maximum widths for layout but keep images responsive */
         .img-half { max-width: 400px; }
         .img-full { max-width: 100%; }
+
+        .mermaid-container {
+            display: block;
+            margin: 20px 0;
+            clear: both;
+        }
+

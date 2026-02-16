@@ -33,7 +33,6 @@ RestartSec=3
 
 [Install]
 WantedBy=multi-user.target
-
 ```
 
 ### **Comandos Importantes**
@@ -71,7 +70,6 @@ server {
         proxy_set_header Connection "upgrade";
     }
 }
-
 ```
 
 ### **Comandos Importantes**
