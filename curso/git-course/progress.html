@@ -1,40 +1,37 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Progresso do Curso Git</title>
+  <meta charset="UTF-8">
+  <title>Progresso</title>
 
-    <link rel="stylesheet" href="/static/css/components/style.css">
-    <link rel="stylesheet" href="/static/css/progress.css">
-
-    <script src="/static/js/git-course-functions.js"></script>
+  <link rel="stylesheet" href="../../static/css/components/style.css">
 </head>
 
 <body>
 
-    <div class="container">
+  <!-- NAVBAR DINÂMICA -->
+  <div id="navbar"></div>
 
-        <header class="header">
-            <h1>Progresso do Curso Git</h1>
-        </header>
+  <main class="container">
+    <h1>Seu Progresso</h1>
 
-        <section class="progress-summary-box">
-            <h2>Resumo Geral</h2>
-            <div id="progress-summary">Carregando...</div>
-        </section>
+    <p id="progress-info"></p>
 
-        <section class="progress-topics-box">
-            <h2>Tópicos do Curso</h2>
-            <ul id="progress-topics"></ul>
-        </section>
+    <ul id="progress-list"></ul>
+  </main>
 
-        <footer class="footer">
-            <a href="/dashboard.html" class="footer-link">← Voltar ao Dashboard</a>
-        </footer>
+  <!-- CONFIG GLOBAL -->
+  <script src="../../static/js/config.js"></script>
 
-    </div>
+  <!-- MÓDULO DE PROGRESSO -->
+  <script type="module" src="../../static/js/modules/progress.js"></script>
 
-    <script src="/static/js/modules/progress.js"></script>
+  <!-- PROTEÇÃO + NAVBAR -->
+  <script type="module">
+    import { protectRoute, loadNavbar } from "../../static/js/git-course-functions.js";
+    protectRoute();
+    loadNavbar();
+  </script>
+
 </body>
 </html>

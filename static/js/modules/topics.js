@@ -1,40 +1,30 @@
-const token = localStorage.getItem("token")
+document.addEventListener("DOMContentLoaded", async () => {
+    const token = localStorage.getItem("access_token");
 
-async function loadTopics() {
-  const [topicsRes, progressRes] = await Promise.all([
-    fetch("/api/topics/", {
-      headers: { "Authorization": "Bearer " + token }
-    }),
-    fetch("/api/progress/", {
-      headers: { "Authorization": "Bearer " + token }
-    })
-  ])
-
-  const topics = await topicsRes.json()
-  const progress = await progressRes.json()
-
-  const completedTopics = progress
-    .filter(p => p.completed)
-    .map(p => p.topic_id)
-
-  const list = document.getElementById("topics-list")
-  list.innerHTML = ""
-
-  topics.forEach(t => {
-    const li = document.createElement("li")
-
-    if (completedTopics.includes(t.id)) {
-      li.classList.add("completed")
+    if (!token) {
+        window.location.href = "../../auth/login.html";
+        return;
     }
 
-    li.innerHTML = `
-      <a href="/topic/${t.id}">
-        ${t.chapter}. ${t.title}
-      </a>
-    `
+    try {
+        const response = await fetch(`${API_URL}/auth/me`, {
+            headers: { "Authorization": `Bearer ${token}` }
+        });
 
-    list.appendChild(li)
-  })
-}
+        if (!response.ok) {
+            localStorage.removeItem("access_token");
+            window.location.href = "../../auth/login.html";
+            return;
+        }
 
-loadTopics()
+        const user = await response.json();
+        console.log("Usuário autenticado:", user);
+
+        // Aqui você carrega os tópicos do curso
+        // ...
+
+    } catch (err) {
+        console.error(err);
+        window.location.href = "../../auth/login.html";
+    }
+});

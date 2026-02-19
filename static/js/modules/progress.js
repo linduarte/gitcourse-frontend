@@ -1,63 +1,31 @@
-const token = localStorage.getItem("access_token");
+import { protectRoute, loadNavbar, getCurrentUser } from "../git-course-functions.js";
 
-async function loadProgress() {
-    if (!token) {
-        window.location.href = "/landing.html";
-        return;
+document.addEventListener("DOMContentLoaded", async () => {
+    protectRoute();
+    loadNavbar();
+
+    const user = await getCurrentUser();
+    const infoEl = document.getElementById("progress-info");
+    const listEl = document.getElementById("progress-list");
+
+    try {
+        const topics = await fetch(`${API_URL}/topics`).then(r => r.json());
+        const progress = await fetch(`${API_URL}/progress/${user.id}`).then(r => r.json());
+
+        const doneIds = progress.map(p => p.topic_id);
+        const percent = Math.round((progress.length / topics.length) * 100);
+
+        infoEl.textContent = `Você concluiu ${progress.length} de ${topics.length} tópicos (${percent}%).`;
+
+        listEl.innerHTML = topics.map(t => `
+            <li>
+                ${doneIds.includes(t.id) ? "✔" : "✖"} 
+                ${t.title}
+            </li>
+        `).join("");
+
+    } catch (err) {
+        console.error(err);
+        infoEl.textContent = "Erro ao carregar progresso.";
     }
-
-    const [topicsRes, progressRes, summaryRes] = await Promise.all([
-        apiCall("/topics/"),
-        apiCall("/progress/"),
-        apiCall("/progress/summary")
-    ]);
-
-    const topics = await topicsRes.json();
-    const progress = await progressRes.json();
-    const summary = await summaryRes.json();
-
-    renderSummary(summary);
-    renderTopics(topics, progress);
-}
-
-function renderSummary(summary) {
-    const box = document.getElementById("progress-summary");
-
-    box.innerHTML = `
-        <p><b>Total de tópicos:</b> ${summary.total_topics}</p>
-        <p><b>Concluídos:</b> ${summary.completed_topics}</p>
-        <p><b>Progresso:</b> ${summary.completion_rate}%</p>
-
-        <div class="progress-bar">
-            <div class="progress-bar-fill" style="width: ${summary.completion_rate}%"></div>
-        </div>
-    `;
-}
-
-function renderTopics(topics, progress) {
-    const list = document.getElementById("progress-topics");
-    list.innerHTML = "";
-
-    const completedIds = progress
-        .filter(p => p.completed)
-        .map(p => p.topic_id);
-
-    topics.forEach(t => {
-        const li = document.createElement("li");
-        li.classList.add("topic-item");
-
-        if (completedIds.includes(t.id)) {
-            li.classList.add("completed");
-        }
-
-        li.innerHTML = `
-            <a href="/topic/${t.id}">
-                ${t.chapter}. ${t.title}
-            </a>
-        `;
-
-        list.appendChild(li);
-    });
-}
-
-loadProgress();
+});

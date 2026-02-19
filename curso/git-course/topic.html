@@ -4,18 +4,36 @@
   <meta charset="UTF-8">
   <title>Tópico</title>
 
-  <link rel="stylesheet" href="/static/css/components/style.css">
+  <!-- CSS do curso -->
+  <link rel="stylesheet" href="../../static/css/components/style.css">
 </head>
 
 <body>
 
-  {% include "nav-menu.html" %}
+  <!-- NAVBAR DINÂMICA -->
+  <div id="navbar"></div>
 
   <main class="container">
-    <h1 id="title"></h1>
-    <article id="content"></article>
+    <h1 id="topic-title"></h1>
+    <article id="topic-content"></article>
+
+    <button id="mark-done" class="btn-footer-primary" style="margin-top:20px;">
+      Marcar como concluído
+    </button>
   </main>
 
-  <script src="/static/js/modules/topic.js"></script>
+  <!-- CONFIG GLOBAL -->
+  <script src="../../static/js/config.js"></script>
+
+  <!-- MÓDULO DO TÓPICO -->
+  <script type="module" src="../../static/js/modules/topic.js"></script>
+
+  <!-- PROTEÇÃO DE ROTA + NAVBAR -->
+  <script type="module">
+    import { protectRoute, loadNavbar } from "../../static/js/git-course-functions.js";
+    protectRoute();
+    loadNavbar();
+  </script>
+
 </body>
 </html>
