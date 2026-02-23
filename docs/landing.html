@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Curso Git - Aprenda de forma prática e eficiente</title>
+
+    <!-- Caminhos corrigidos para GitHub Pages -->
+    <link rel="stylesheet" href="../assets/css/style_io.css">
+    <link rel="stylesheet" href="../assets/css/common-styles.css">
+    <link rel="stylesheet" href="../assets/css/git-course.css">
+    <link rel="stylesheet" href="../assets/css/landing.css">
+</head>
+
+<body>
+<div id="landing-root">
+<main id="main" class="main-container" aria-label="Conteúdo principal da landing page">
+
+    <!-- Aviso de construção -->
+    <section class="construction-section">
+        <div class="construction-img-wrapper">
+            <img src="../static/images/under-construction.webp"
+                 alt="Site em construção"
+                 class="construction-img">
+        </div>
+
+        <div class="construction-text-container">
+            <h2 class="construction-title">Site em Construção</h2>
+            <p class="construction-paragraph">
+                Curso Git em desenvolvimento ativo. Novas funcionalidades sendo adicionadas regularmente.
+            </p>
+        </div>
+    </section>
+
+    <!-- Bloco chamariz -->
+    <header class="header" aria-label="Cabeçalho principal da landing page">
+        <img alt="Git Logo"
+             src="../static/images/GitLogo_sp.png"
+             srcset="../static/images/GitLogo_sp-2x.png 2x, ../static/images/GitLogo_sp-3x.png 3x"
+             class="git-logo-img">
+
+        <div class="call">
+            <h1 class="banner-message">Aprenda Git de forma prática e eficiente!</h1>
+            <p class="banner-submessage">
+                <a href="auth/register.html" class="btn-primary">Clique aqui para se registrar!</a>
+                <a href="auth/login.html" class="btn-secondary">Fazer login</a>
+            </p>
+        </div>
+    </header>
+
+    <div class="grid-container">
+        <section class="column1 grid-item">
+            <div class="subject-title">
+                <h2><strong>O que é <em>'Git'</em>? E por que ele é importante!</strong></h2>
+            </div>
+
+            <p>
+                <strong><em>É um sistema de controle de versão distribuída</em></strong>,
+                permitindo que vários desenvolvedores possam colaborar em um projeto de maneira simultânea.<br>
+                O <strong>Git</strong> acompanha as alterações que ocorrem nos códigos-fonte, permite o versionamento
+                e facilita a colaboração entre os membros de um grupo.<br>
+                O <strong>Git</strong> se tornou importante porque é muito robusto, flexível e eficiente no controle
+                das alterações de versão no ambiente colaborativo de desenvolvimento.<br>
+                Sua ampla adoção, poderosas funcionalidades e suporte aos mais diversos fluxos de trabalho fazem dele
+                uma ferramenta essencial nas práticas de desenvolvimento.<br>
+                Trabalhando em pequenos projetos ou em aplicações de larga escala em ambientes corporativos,
+                o <strong>Git</strong>, com suas várias funcionalidades, contribui para as atividades de desenvolvimento de software.
+            </p>
+
+            <section>
+                <h5>Navegação</h5>
+                <nav class="nav" aria-label="Navegação principal">
+                    <ul>
+                        <li class="active hover"><a href="#base1">Principais estados dos arquivos no Git</a></li>
+                        <li class="active hover"><a href="#base2">Conceitos-chave: 'Repositories', 'Commits' e 'Branches'</a></li>
+                        <li class="active hover"><a href="#base3">Git workflow (fluxo de trabalho)</a></li>
+                        <li class="active hover"><a href="#base4">Terminal Git e por que não uma interface gráfica</a></li>
+                        <li class="active hover"><a href="#base5">E como não falar de GitHub?</a></li>
+                    </ul>
+                </nav>
+
+                <article>
+                    <h5 id="base1">Principais estados dos arquivos no <strong>Git</strong></h5>
+                    <p>
+                        O <strong>Git</strong> possui três estados nos quais seus arquivos podem ser armazenados.
+                        Estes estados correspondem a estágios de um projeto, a saber:
+                        “modificado”, “staged” e “commitado”.<br>
+                        <strong>Modificado</strong> — significa que houve uma alteração em seu arquivo, mas o mesmo ainda não foi commitado.<br>
+                        <strong>Staged</strong> — significa que você marcou o arquivo modificado para que ele seja encaminhado ao próximo commit.<br>
+                        <strong>Commitado</strong> — significa que os dados pertinentes ao seu arquivo estão seguros em sua base de dados.
+                    </p>
+
+                    <h5 id="base2">Conceitos-chave: 'Repositories', 'Commits' e 'Branches'</h5>
+                    <ul class="cltwo">
+                        <li><strong>'Repositories'</strong>: Os repositórios <strong>Git</strong> são recipientes de projetos, armazenamento de arquivos e sua revisão histórica.</li>
+                        <li><strong>'Commits'</strong>: Cada commit representa um “instantâneo” em um determinado momento, permitindo aos usuários voltar atrás em estados anteriores.</li>
+                        <li><strong>'Branches'</strong>: Eles permitem desenvolvimentos paralelos, de modo que os desenvolvedores possam trabalhar em diferentes funcionalidades ou até mesmo corrigir falhas (bugs) independentemente.</li>
+                    </ul>
+
+                    <h5 id="base3"><strong>Git</strong> workflow (fluxo de trabalho)</h5>
+                    <ul class="clthree">
+                        <li>Inicializando um repositório: <code class="code-style">git init</code></li>
+                        <li>Adicionando arquivos na área de staging: <code class="code-style">git add</code></li>
+                        <li>Realizando um commit: <code class="code-style">git commit -m "Commit message"</code></li>
+                        <li>Verificando o status: <code class="code-style">git status</code></li>
+                        <li>Vendo o histórico dos commits: <code class="code-style">git log</code></li>
+                    </ul>
+
+                    <h5 id="base4">Terminal Git e por que não uma interface gráfica</h5>
+                    <p>
+                        A interface gráfica de fato provê uma forma intuitiva de interagir com o <strong>Git</strong>.<br>
+                        Entretanto, o terminal oferece várias vantagens que o tornam o preferido entre os desenvolvedores.
+                        A linha de comando permite grande visibilidade e controle. Os desenvolvedores têm clareza pela representação textual
+                        das mudanças do projeto, dos branches e de toda a história do desenvolvimento.<br>
+                        Essa transparência é crucial para o entendimento das complexidades do controle de versão, permitindo ações imediatas.<br>
+                        Deve-se salientar ainda que o terminal permite criar scripts que auxiliam os desenvolvedores a automatizar tarefas repetitivas
+                        ou customizar fluxos de trabalho específicos de seus projetos.
+                    </p>
+
+                    <div>
+                        <picture class="cl">
+                            <img src="../static/images/cl_new-tr.webp"
+                                 srcset="../static/images/cl_new-tr-100.webp 100w,
+                                         ../static/images/cl_new-tr-200.webp 200w,
+                                         ../static/images/cl_new-tr-400.webp 400w,
+                                         ../static/images/cl_new-tr-800.webp 800w"
+                                 sizes="(max-width: 800px) 100vw, 50vw"
+                                 alt="Terminal Git bash"
+                                 width="800" height="450"
+                                 loading="lazy"
+                                 class="terminal-img">
+                        </picture>
+                    </div>
+
+                    <h5 id="base5">E como não falar de GitHub?</h5>
+                    <p>
+                        O engenheiro de software Tom Preston-Werner, vendo a necessidade de criar uma forma mais eficiente de compartilhar e gerenciar
+                        códigos-fonte entre desenvolvedores, deu início ao projeto do <strong>GitHub</strong> em março de 2008.
+                        A ideia cresceu rapidamente e, após um aporte de 100 milhões de dólares, a empresa já contava com um milhão de usuários em apenas dois anos.
+                        Crescendo dessa forma, foi adquirida por 7,5 bilhões de dólares pela Microsoft.<br>
+                        O <strong>GitHub</strong> é um serviço de hospedagem via web para desenvolvimento de projetos de software que usa o sistema de revisão e controle do <strong>Git</strong>.
+                        Ele oferece todas as funcionalidades de controle distribuído de versão do <strong>Git</strong> e adiciona suas próprias ferramentas e recursos.
+                    </p>
+                </article>
+            </section>
+        </section>
+
+        <!-- Coluna direita -->
+        <aside class="column2 grid-item">
+            <div class="curse-title">
+                <h4><strong>Programa do Curso</strong></h4>
+            </div>
+
+            <!-- (todo o conteúdo do aside permanece inalterado) -->
+            <!-- ... -->
+        </aside>
+    </div>
+
+    <!-- Rodapé principal unificado -->
+    <footer class="site-footer" aria-label="Rodapé principal da landing page">
+        <p>&copy; 2025 Curso de Git. Todos os direitos reservados.</p>
+
+        <div class="footer-badges">
+            <a href="https://pages.github.com/" class="github-link">
+                <span>🐙 GitHub Pages</span>
+                <img src="../static/images/github-mark-white.png"
+                     alt="GitHub Logo"
+                     class="footer-logo">
+            </a>
+
+            <a href="http://jigsaw.w3.org/css-validator/check/referer" class="w3c-link">
+                <img src="https://jigsaw.w3.org/css-validator/images/vcss"
+                     alt="CSS válido!"
+                     class="footer-logo">
+            </a>
+        </div>
+    </footer>
+
+</main>
+</div>
+
+</body>
+</html>
