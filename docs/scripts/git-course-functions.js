@@ -5,7 +5,8 @@ export function protectRoute() {
     const token = localStorage.getItem("access_token");
 
     if (!token) {
-        window.location.href = "../../auth/login.html";
+        // Caminho absoluto — funciona em qualquer página
+        window.location.href = "/auth/login.html";
         return false;
     }
 
@@ -40,7 +41,7 @@ export async function getCurrentUser() {
 // ===============================
 export function logout() {
     localStorage.removeItem("access_token");
-    window.location.href = "../../auth/login.html";
+    window.location.href = "/auth/login.html"; // Caminho absoluto
 }
 
 // ===============================
@@ -56,9 +57,9 @@ export async function loadNavbar() {
     navbarContainer.innerHTML = `
         <nav class="navbar">
             <div class="nav-left">
-                <a href="topics.html">Tópicos</a>
-                <a href="progress.html">Progresso</a>
-                <a href="program.html">Programa</a>
+                <a href="/curso/topics.html">Tópicos</a>
+                <a href="/curso/progress.html">Progresso</a>
+                <a href="/curso/program.html">Programa</a>
             </div>
 
             <div class="nav-right">

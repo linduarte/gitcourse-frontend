@@ -5,43 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Git Diff</title>
 
-    <link rel="stylesheet" href="/assets/css/gitcourse.css">
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="../../assets/css/gitcourse.css">
 
+    <!-- Prism -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
-    <style>
-        .mermaid-container {
-            display: block;
-            margin: 25px 0;
-            clear: both;
-        }
-    </style>
+    <!-- Configuração global -->
+    <script src="../../static/js/config.js"></script>
 
-    <script src="/static/js/config.js"></script>
-
+    <!-- Autenticação + Concluído -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
+
         const token = localStorage.getItem('access_token');
         if (!token) {
-            window.location.href = '/landing.html';
+            window.location.href = '../../landing.html';
             return;
         }
+
         const logoutBtn = document.getElementById('logoutButton');
         if (logoutBtn) {
             logoutBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 localStorage.removeItem('access_token');
-                window.location.href = '/landing.html';
+                window.location.href = '../../landing.html';
+            });
+        }
+
+        const btn = document.getElementById("markCompletedButton");
+        if (btn) {
+            btn.addEventListener("click", async () => {
+                const origText = btn.innerText;
+                btn.disabled = true;
+                btn.innerText = 'Enviando...';
+
+                try {
+                    const response = await fetch(`${API_URL}/progress/`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify({
+                            topic_id: btn.dataset.topicId,
+                            completed: true,
+                            feedback: 'Muito bom este tópico!'
+                        }),
+                    });
+
+                    if (response.ok) {
+                        btn.innerText = 'Concluído ✓';
+                        btn.classList.add('completed');
+                    } else {
+                        btn.disabled = false;
+                        btn.innerText = origText;
+                        alert('Erro ao marcar o progresso');
+                    }
+                } catch (err) {
+                    btn.disabled = false;
+                    btn.innerText = origText;
+                    alert('Erro de conexão ao marcar progresso');
+                }
             });
         }
     });
     </script>
 
-    <!-- Mermaid clássico -->
+    <!-- Mermaid -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>
         mermaid.initialize({
@@ -63,7 +99,7 @@
         Um commit representa um ponto específico da evolução do arquivo dentro do repositório.
     </p>
 
-    <ul>
+    <ul class="p-styled spaced-p">
         <li>Diretório de trabalho — versão em edição.</li>
         <li>Versão staged — adicionada ao index via <code>git add</code>.</li>
         <li>Versão comitada — registrada no histórico.</li>
@@ -84,31 +120,31 @@
         Para iniciarmos o uso do git diff, é importante saber o status do repositório após o commit da letra “D”.
     </p>
 
-    <img src="/static/images/status_comit_let_D.webp" alt="Status do repositório após commit da letra D" class="img-full">
+    <img src="../../static/images/status_comit_let_D.webp" alt="Status do repositório após commit da letra D" class="img-full">
 
     <p class="p-styled spaced-p">
         Vamos implementar uma nova feature request adicionando a letra “E” aos arquivos <em>pilots.html</em>, <em>cities.html</em> e <em>names.html</em>.
     </p>
 
-    <img src="/static/images/add_letter.webp" alt="Adição da letra E nos arquivos HTML" class="img-full">
+    <img src="../../static/images/add_letter.webp" alt="Adição da letra E nos arquivos HTML" class="img-full">
 
     <p class="p-styled spaced-p">
         Após as alterações, adicionamos os arquivos ao index usando <code>git add</code>.
     </p>
 
-    <img src="/static/images/git_add_let_F.webp" alt="Aplicação do git add" class="img-full">
+    <img src="../../static/images/git_add_let_F.webp" alt="Aplicação do git add" class="img-full">
 
     <p class="p-styled spaced-p">
         Em seguida, adicionamos a letra “F” aos mesmos arquivos.
     </p>
 
-    <img src="/static/images/git_add_let_E.webp" alt="Status após adição da letra F" class="img-full">
+    <img src="../../static/images/git_add_let_E.webp" alt="Status após adição da letra F" class="img-full">
 
     <p class="p-styled spaced-p">
         A imagem mostra que a letra “F” ainda não foi adicionada ao index, enquanto a letra “E” já está staged.
     </p>
 
-    <img src="/static/images/git-log-oneline.webp" alt="Log após adição da letra D" class="img-full">
+    <img src="../../static/images/git-log-oneline.webp" alt="Log após adição da letra D" class="img-full">
 
     <p class="p-styled spaced-p">
         Temos então três situações distintas:
@@ -123,11 +159,9 @@
         O comando <code>git diff</code> é extremamente útil para visualizar diferenças entre estados da base de código.
     </p>
 
-    <p class="p-styled spaced-p">
-        Ele permite comparar:
-    </p>
+    <p class="p-styled spaced-p">Ele permite comparar:</p>
 
-    <ul>
+    <ul class="p-styled spaced-p">
         <li>Diretório de trabalho vs. último commit</li>
         <li>Staged vs. último commit</li>
         <li>Dois commits específicos</li>
@@ -147,94 +181,94 @@
         Usaremos o arquivo <strong>pilots.html</strong> para demonstração.
     </p>
 
-    <img src="/static/images/git_st_diff.webp" alt="Status do arquivo pilots.html" class="img-full">
+    <img src="../../static/images/git_st_diff.webp" alt="Status do arquivo pilots.html" class="img-full">
 
     <p class="p-styled spaced-p">
         A seguir interpretaremos a saída do comando <code>git diff pilots.html</code>.
     </p>
 
-    <img src="/static/images/git-diff-pilot.webp" alt="Saída do git diff" class="img-full">
+    <img src="../../static/images/git-diff-pilot.webp" alt="Saída do git diff" class="img-full">
 
     <h4>Comando executado</h4>
 
-    <ul>
-        <li class="li-large"><code>git diff</code></li>
-        <li class="li-large">Compara a versão atual com a última comitada.</li>
+    <ul class="p-styled spaced-p">
+        <li><code>git diff</code></li>
+        <li>Compara a versão atual com a última comitada.</li>
     </ul>
 
     <h4>Primeiras linhas</h4>
 
-    <ul>
-        <li class="li-large"><code>diff --git a/pilots.html b/pilots.html</code></li>
-        <li class="li-large">Indica que o arquivo está sendo comparado.</li>
+    <ul class="p-styled spaced-p">
+        <li><code>diff --git a/pilots.html b/pilots.html</code></li>
+        <li>Indica que o arquivo está sendo comparado.</li>
     </ul>
 
     <h4>Índice</h4>
 
-    <ul>
-        <li class="li-large"><code>index fb4318f..32706f8 100644</code></li>
-        <li class="li-large">fb4318f → hash anterior</li>
-        <li class="li-large">32706f8 → hash atual</li>
-        <li class="li-large">100644 → permissões do arquivo</li>
+    <ul class="p-styled spaced-p">
+        <li><code>index fb4318f..32706f8 100644</code></li>
+        <li>fb4318f → hash anterior</li>
+        <li>32706f8 → hash atual</li>
+        <li>100644 → permissões do arquivo</li>
     </ul>
 
     <h4>Identificação das versões</h4>
 
-    <ul>
-        <li class="li-large"><code>--- a/pilots.html</code></li>
-        <li class="li-large"><code>+++ b/pilots.html</code></li>
+    <ul class="p-styled spaced-p">
+        <li><code>--- a/pilots.html</code></li>
+        <li><code>+++ b/pilots.html</code></li>
     </ul>
 
     <h4>Bloco de contexto</h4>
 
-    <ul>
-        <li class="li-large"><code>@@ -22,6 +22,7 @@</code></li>
-        <li class="li-large">Mostra onde ocorreu a mudança.</li>
+    <ul class="p-styled spaced-p">
+        <li><code>@@ -22,6 +22,7 @@</code></li>
+        <li>Mostra onde ocorreu a mudança.</li>
     </ul>
 
     <h4>Conteúdo antes e depois</h4>
 
-    <img src="/static/images/conteudo_diff.webp" alt="Conteúdo antes e depois" class="img-full">
+    <img src="../../static/images/conteudo_diff.webp" alt="Conteúdo antes e depois" class="img-full">
 
     <h4>Estado do repositório</h4>
 
-    <ul>
-        <li class="li-large">A linha Delta já estava comitada.</li>
-        <li class="li-large">A linha Foxtrot está unstaged.</li>
-        <li class="li-large">A letra E está staged.</li>
+    <ul class="p-styled spaced-p">
+        <li>A linha Delta já estava comitada.</li>
+        <li>A linha Foxtrot está unstaged.</li>
+        <li>A letra E está staged.</li>
     </ul>
 
     <h4>Testando no repositório</h4>
 
     <p class="p-styled spaced-p">Para ver diferenças staged:</p>
 
-    <pre class="spaced-pre code-block"><code class="language-bash">git diff --staged pilots.html</code></pre>
+    <pre class="spaced-pre"><code class="language-bash">git diff --staged pilots.html</code></pre>
 
-    <img src="/static/images/git-diff_staged.webp" alt="git diff --staged" class="img-full">
+    <img src="../../static/images/git-diff_staged.webp" alt="git diff --staged" class="img-full">
 
     <h4>Alterações desde o último commit</h4>
 
-    <pre class="spaced-pre code-block"><code class="language-bash">git diff HEAD pilots.html</code></pre>
+    <pre class="spaced-pre"><code class="language-bash">git diff HEAD pilots.html</code></pre>
 
-    <img src="/static/images/git-diff-head.webp" alt="git diff HEAD" class="img-full">
+    <img src="../../static/images/git-diff-head.webp" alt="git diff HEAD" class="img-full">
 
     <h4>Comparando dois commits</h4>
 
-    <pre class="spaced-pre code-block"><code class="language-bash">git diff HEAD~1 HEAD pilots.html</code></pre>
+    <pre class="spaced-pre"><code class="language-bash">git diff HEAD~1 HEAD pilots.html</code></pre>
 
-    <img src="/static/images/git-diff-head-head.webp" alt="Comparação entre commits" class="img-full">
+    <img src="../../static/images/git-diff-head-head.webp" alt="Comparação entre commits" class="img-full">
 
     <h4>Obtendo hashes pelo git log</h4>
 
-    <pre class="spaced-pre code-block"><code class="language-bash">git log --oneline --decorate</code></pre>
-    <pre class="spaced-pre code-block"><code class="language-bash">git diff d298f74 2dded79 pilots.html</code></pre>
+    <pre class="spaced-pre"><code class="language-bash">git log --oneline --decorate</code></pre>
+    <pre class="spaced-pre"><code class="language-bash">git diff d298f74 2dded79 pilots.html</code></pre>
 
-    <img src="/static/images/git-log-diff.webp" alt="git log e git diff" class="img-full">
+    <img src="../../static/images/git-log-diff.webp" alt="git log e git diff" class="img-full">
 
     <h4>Commit das pendências</h4>
 
-    <img src="/static/images/commit_E.webp" alt="Commit letra E" class="img-full">
-    <img src="/static/images/commit_F.webp" alt="Commit letra F" class="img-full">
+    <img src="../../static/images/commit_E.webp" alt="Commit letra E" class="img-full">
+    <img src="../../static/images/commit_F.webp" alt="Commit letra F" class="img-full">
 
     <p class="p-styled spaced-p">
         O commit da letra F foi precedido de <code>git add</code>.
@@ -242,21 +276,19 @@
 
     <h4>Conclusão</h4>
 
-    <img src="/static/images/git-st-final.webp" alt="Status final" class="img-full">
+    <img src="../../static/images/git-st-final.webp" alt="Status final" class="img-full">
 
     <section>
         <h3>Git Graph</h3>
-        <p>Diagrama Mermaid para o Git Graph</p>
+        <p class="p-styled spaced-p">Diagrama Mermaid para o Git Graph</p>
 
-        <div class="mermaid-container">
-            <div class="mermaid">
+        <div class="mermaid">
 gitGraph
     commit id: "0-Initial commit"
     commit id: "1-Adicionado o código fonte"
     commit id: "2-Letra D adicionada"
     commit id: "3-Letra E adicionada"
     commit id: "4-Letra F adicionada"
-            </div>
         </div>
 
         <h3>Mermaid Code</h3>
@@ -274,12 +306,11 @@ gitGraph
     </section>
 
 
-<!-- FOOTER -->
-<footer class="footer">
 
-    <div class="footer-copyright">
-        © 2025 Curso de Git. Todos os direitos reservados.
-    </div>
+<!-- ============================
+         FOOTER
+============================= -->
+<footer class="footer">
 
     <div class="footer-flex">
         <nav class="footer-nav">
@@ -302,7 +333,7 @@ gitGraph
     <div class="footer-badges">
         <a href="https://pages.github.com/" class="github-link">
             <span>🐙 GitHub Pages</span>
-            <img src="/static/images/github-mark-white.png" alt="GitHub Logo" class="footer-logo">
+            <img src="../../static/images/github-mark-white.png" alt="GitHub Logo" class="footer-logo">
         </a>
         <a href="https://jigsaw.w3.org/css-validator/check/referer" class="w3c-link">
             <img src="https://jigsaw.w3.org/css-validator/images/vcss"
@@ -312,12 +343,12 @@ gitGraph
 
 </footer>
 
-
+<!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
 <script>Prism.highlightAll();</script>
-<script src="/static/js/git-course-functions.js"></script>
+
+<script src="../../static/js/git-course-functions.js"></script>
 
 </body>
 </html>
-

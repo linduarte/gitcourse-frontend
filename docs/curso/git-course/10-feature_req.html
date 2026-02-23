@@ -1,52 +1,82 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <script>
-        const API_URL = 'https://api.git-learn.com.br';
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Feature Request</title>
 
-    <link rel="stylesheet" href="/assets/css/gitcourse.css">
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="../../assets/css/gitcourse.css">
 
-    
+    <!-- Prism -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
-    <style>
-        .mermaid-container {
-            display: block;
-            margin: 25px 0;
-            clear: both;
-        }
-    </style>
+    <!-- Configuração global -->
+    <script src="../../static/js/config.js"></script>
 
-    <script src="/static/js/config.js"></script>
-
+    <!-- Autenticação + progresso -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         const token = localStorage.getItem('access_token');
         if (!token) {
-            window.location.href = '/landing.html';
+            window.location.href = '../../landing.html';
             return;
         }
+
         const logoutBtn = document.getElementById('logoutButton');
         if (logoutBtn) {
             logoutBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 localStorage.removeItem('access_token');
-                window.location.href = '/landing.html';
+                window.location.href = '../../landing.html';
+            });
+        }
+
+        const btn = document.getElementById('markCompletedButton');
+        if (btn) {
+            btn.addEventListener('click', async () => {
+                const origText = btn.innerText;
+                btn.disabled = true;
+                btn.innerText = 'Enviando...';
+
+                try {
+                    const response = await fetch(`${API_URL}/progress/`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify({
+                            topic_id: btn.dataset.topicId,
+                            completed: true,
+                            feedback: 'Muito bom este tópico!'
+                        }),
+                    });
+
+                    if (response.ok) {
+                        btn.innerText = 'Concluído ✓';
+                        btn.classList.add('completed');
+                    } else {
+                        btn.disabled = false;
+                        btn.innerText = origText;
+                        alert('Erro ao marcar o progresso');
+                    }
+                } catch (err) {
+                    btn.disabled = false;
+                    btn.innerText = origText;
+                    alert('Erro de conexão ao marcar progresso');
+                }
             });
         }
     });
     </script>
 
-    <!-- Mermaid clássico -->
+    <!-- Mermaid -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>
         mermaid.initialize({
@@ -77,8 +107,8 @@
     </p>
 
     <div class="flex-between-gap">
-        <img src="/static/images/pilots_html.webp" alt="Arquivo pilots.html antes da alteração" class="img-half">
-        <img src="/static/images/pilots_html_D.webp" alt="Arquivo pilots.html com a letra D adicionada" class="img-half">
+        <img src="../../static/images/pilots_html.webp" alt="Arquivo pilots.html antes da alteração" class="img-half">
+        <img src="../../static/images/pilots_html_D.webp" alt="Arquivo pilots.html com a letra D adicionada" class="img-half">
     </div>
 
     <p class="p-styled spaced-p">
@@ -86,8 +116,8 @@
     </p>
 
     <div class="flex-between-gap">
-        <img src="/static/images/cities_html.webp" alt="Arquivo cities.html antes da alteração" class="img-half">
-        <img src="/static/images/cities_html_D.webp" alt="Arquivo cities.html com a letra D adicionada" class="img-half">
+        <img src="../../static/images/cities_html.webp" alt="Arquivo cities.html antes da alteração" class="img-half">
+        <img src="../../static/images/cities_html_D.webp" alt="Arquivo cities.html com a letra D adicionada" class="img-half">
     </div>
 
     <p class="p-styled spaced-p">
@@ -95,8 +125,8 @@
     </p>
 
     <div class="flex-between-gap">
-        <img src="/static/images/names_html.webp" alt="Arquivo names.html antes da alteração" class="img-half">
-        <img src="/static/images/names_html_D.webp" alt="Arquivo names.html com a letra D adicionada" class="img-half">
+        <img src="../../static/images/names_html.webp" alt="Arquivo names.html antes da alteração" class="img-half">
+        <img src="../../static/images/names_html_D.webp" alt="Arquivo names.html com a letra D adicionada" class="img-half">
     </div>
 
     <p class="p-styled spaced-p">
@@ -113,7 +143,7 @@
         O commit grava essas mudanças no repositório.
     </p>
 
-    <img src="/static/images/html_changes.webp" alt="Resultado do comando git status mostrando arquivos modificados" class="img-full">
+    <img src="../../static/images/html_changes.webp" alt="Resultado do comando git status mostrando arquivos modificados" class="img-full">
 
     <p class="p-styled spaced-p">
         A imagem mostra claramente que os três arquivos HTML foram modificados e ainda não foram adicionados ao stage.
@@ -124,13 +154,13 @@
         Para adicionar todos os arquivos modificados, usamos <code>git add .</code>
     </p>
 
-    <img src="/static/images/html_git-add.webp" alt="Resultado do comando git add" class="img-full">
+    <img src="../../static/images/html_git-add.webp" alt="Resultado do comando git add" class="img-full">
 
     <p class="p-styled spaced-p">
         A imagem abaixo mostra o commit realizado após a adição dos arquivos HTML, bem como o <code>git status</code> indicando que o repositório local está à frente do remoto.
     </p>
 
-    <img src="/static/images/git-commit_st.webp" alt="Commit realizado e git status mostrando repositório à frente" class="img-full">
+    <img src="../../static/images/git-commit_st.webp" alt="Commit realizado e git status mostrando repositório à frente" class="img-full">
 
     <h3>Vendo a história do projeto</h3>
 
@@ -139,7 +169,7 @@
         <code class="language-bash">git log</code>
     </p>
 
-    <img src="/static/images/git_log.webp" alt="Histórico completo de commits" class="img-full">
+    <img src="../../static/images/git_log.webp" alt="Histórico completo de commits" class="img-full">
 
     <p class="p-styled spaced-p">
         A imagem acima mostra cada commit com seu hash completo, autor, data e mensagem.
@@ -151,7 +181,7 @@
         <code class="language-bash">git log --oneline --decorate</code>
     </p>
 
-    <img src="/static/images/git-log-oneline.webp" alt="Histórico de commits em formato resumido" class="img-full">
+    <img src="../../static/images/git-log-oneline.webp" alt="Histórico de commits em formato resumido" class="img-full">
 
     <p class="p-styled spaced-p">
         O hash reduzido de 7 caracteres é extraído do início do hash completo.
@@ -161,22 +191,15 @@
         O Git Graph abaixo representa os commits realizados no branch <strong>main</strong>.
     </p>
 
-
-
-    <!-- ============================
-         GIT GRAPH
-    ============================= -->
     <section id="section4">
         <h3>Git Graph</h3>
-        <p>Diagrama Mermaid para o Git Graph</p>
+        <p class="p-styled spaced-p">Diagrama Mermaid para o Git Graph</p>
 
-        <div class="mermaid-container">
         <div class="mermaid">
 gitGraph
     commit id: "0-109f780"
     commit id: "1-d298f74"
     commit id: "2-2dded79"
-        </div>
         </div>
 
         <h3>Mermaid Code</h3>
@@ -197,10 +220,6 @@ gitGraph
          FOOTER
 ============================= -->
 <footer class="footer">
-
-    <div class="footer-copyright">
-        © 2025 Curso de Git. Todos os direitos reservados.
-    </div>
 
     <div class="footer-flex">
         <nav class="footer-nav">
@@ -223,7 +242,7 @@ gitGraph
     <div class="footer-badges">
         <a href="https://pages.github.com/" class="github-link">
             <span>🐙 GitHub Pages</span>
-            <img src="/static/images/github-mark-white.png" alt="GitHub Logo" class="footer-logo">
+            <img src="../../static/images/github-mark-white.png" alt="GitHub Logo" class="footer-logo">
         </a>
         <a href="https://jigsaw.w3.org/css-validator/check/referer" class="w3c-link">
             <img src="https://jigsaw.w3.org/css-validator/images/vcss" 
@@ -233,55 +252,13 @@ gitGraph
 
 </footer>
 
-
-
-<!-- Scripts -->
+<!-- Prism -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
 <script>Prism.highlightAll();</script>
 
-<script src="/static/js/git-course-functions.js"></script>
-
-<script>
-document.getElementById("markCompletedButton").addEventListener("click", async () => {
-    const btn = document.getElementById("markCompletedButton");
-    const origText = btn.innerText;
-    btn.disabled = true;
-    btn.innerText = 'Enviando...';
-
-    const token = localStorage.getItem("access_token");
-    const topicId = btn.dataset.topicId;
-
-    try {
-        const response = await fetch(`${API_URL}/progress/`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`,
-            },
-            body: JSON.stringify({
-                topic_id: topicId,
-                completed: true,
-                feedback: "Muito bom este tópico!",
-            }),
-        });
-
-        if (response.ok) {
-            btn.innerText = 'Concluído ✓';
-            btn.classList.add('completed');
-        } else {
-            btn.disabled = false;
-            btn.innerText = origText;
-            alert('Erro ao marcar o progresso');
-        }
-    } catch (err) {
-        btn.disabled = false;
-        btn.innerText = origText;
-        alert('Erro de conexão ao marcar progresso');
-    }
-});
-</script>
+<!-- Funções globais -->
+<script src="../../static/js/git-course-functions.js"></script>
 
 </body>
 </html>
-

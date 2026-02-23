@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Prefácio - Git Course</title>
 
-    <link rel="stylesheet" href="/assets/css/gitcourse.css">
-    <link rel="stylesheet" href="/assets/css/gitcourse-pre.css">
+    <!-- CSS correto para a página 1 -->
+    <link rel="stylesheet" href="../../assets/css/gitcourse.css"> 
+    <link rel="stylesheet" href="../../assets/css/gitcourse-pre.css">
 
-
+    <!-- PrismJS (CDN permanece igual) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
 
-    
-    
-    <script src="/app/static/js/config.js"></script>
+    <!-- Config da API -->
+    <script src="../../scripts/config.js"></script>
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -24,7 +24,7 @@
             logoutBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 localStorage.removeItem('access_token');
-                window.location.href = '/landing.html';
+                window.location.href = '../../landing.html';
             });
         }
 
@@ -53,7 +53,7 @@
 
                 if (Date.now() - start >= maxWait) {
                     console.log('TEST_LOG: auth-guard redirecting to landing; token=', token, 'elapsed=', Date.now() - start);
-                    window.location.href = '/landing.html';
+                    window.location.href = '../../landing.html';
                     return;
                 }
 
@@ -148,53 +148,53 @@
         </div>
     </div>
 
-
-
     <!-- ============================
-             FOOTER
-    ============================= -->
-    <footer class="footer">
-
-    <div class="footer-copyright">
-        © 2025 Curso de Git. Todos os direitos reservados.
-    </div>
+         FOOTER
+============================= -->
+<footer class="footer">
 
     <div class="footer-flex">
+
         <nav class="footer-nav">
-            <a href="index.html" class="footer-link">← Voltar</a>
-            <a href="2-introduction.html" class="footer-link">Próximo: Introdução →</a>
+            <button type="button" onclick="window.location.href='../../index.html'" class="btn-footer-primary">
+                Início
+            </button>
+
+            <button type="button" onclick="window.location.href='../../dashboard.html'" class="btn-footer-primary">
+                Dashboard
+            </button>
         </nav>
 
         <div class="footer-buttons">
-            <button id="logoutButton" type="button" class="btn-footer-primary">Logout</button>
-            <button type="button" id="markCompletedButton" data-topic-id="1" class="btn-footer-primary">
-                Concluído ✓
+            <button id="logoutButton" type="button" class="btn-footer-primary">
+                Sair
             </button>
         </div>
+
     </div>
 
     <div class="footer-instruction">
-        Para sair da sua conta, clique em Logout. Para registrar seu progresso, clique em Concluído.
+        Use os botões acima para navegar ou sair da sua conta.
     </div>
 
     <div class="footer-badges">
         <a href="https://pages.github.com/" class="github-link">
             <span>🐙 GitHub Pages</span>
-            <img src="/static/images/github-mark-white.png" alt="GitHub Logo" class="footer-logo">
+            <img src="../../static/images/github-mark-white.png" alt="GitHub Logo" class="footer-logo">
         </a>
-
         <a href="https://jigsaw.w3.org/css-validator/check/referer" class="w3c-link">
-            <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS válido!" class="footer-logo" width="45" height="16">
+            <img src="https://jigsaw.w3.org/css-validator/images/vcss"
+                 alt="CSS válido!" class="footer-logo" width="45" height="16">
         </a>
     </div>
 
 </footer>
 
+</div> <!-- /container -->
 
-</div>
-
-<script src="/static/js/git-course-functions.js"></script>
+<!-- Scripts -->
+<script src="../../static/js/config.js"></script>
+<script src="../../static/js/git-course-functions.js"></script>
 
 </body>
 </html>
-

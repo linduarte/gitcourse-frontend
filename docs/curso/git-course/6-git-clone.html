@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <script>
-        const API_URL = 'https://api.git-learn.com.br';
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git Clone</title>
 
-    <link rel="stylesheet" href="/assets/css/gitcourse.css">
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="../../assets/css/gitcourse.css">
     
+    <!-- PrismJS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
-    <script src="/static/js/config.js"></script>
+    <!-- Config da API -->
+    <script src="../../static/js/config.js"></script>
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-        // Verificação de login
+        /* --- Autenticação --- */
         const token = localStorage.getItem('access_token');
         if (!token) {
-            window.location.href = '/landing.html';
+            window.location.href = '../../landing.html';
             return;
         }
 
-        // Logout
+        /* --- Logout --- */
         const logoutBtn = document.getElementById('logoutButton');
         if (logoutBtn) {
             logoutBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 localStorage.removeItem('access_token');
-                window.location.href = '/landing.html';
+                window.location.href = '../../landing.html';
             });
         }
 
-        // Marcar como concluído
+        /* --- Botão Concluído --- */
         const btn = document.getElementById("markCompletedButton");
         if (btn) {
             btn.addEventListener("click", async () => {
@@ -89,22 +89,20 @@
 
     <p class="p-styled spaced-p">
         Uma das operações fundamentais no Git é o comando <strong>git clone</strong>. Ele é essencial para criar uma cópia local de um repositório remoto,
-        permitindo trabalho offline, revisões de código e colaboração. Seja em projetos de código aberto ou repositórios privados,
-        dominar o comando <strong>git clone</strong> amplia sua capacidade de gerenciar e manipular bases de código com eficiência.
+        permitindo trabalho offline, revisões de código e colaboração.
     </p>
 
-    <img src="/static/images/clone_local.webp" 
+    <img src="../../static/images/clone_local.webp" 
          alt="Exemplo do comando git clone criando um repositório local" 
          class="img-full">
 
     <p class="image-description">
         Ao clonar um repositório, você obtém todos os arquivos, histórico de commits e branches existentes.
-        Essa operação costuma ser o primeiro passo antes de contribuir com um projeto ou realizar revisões de código.
     </p>
 
     <ul class="git-clone-steps-list">
-        <li><strong>remote_repository_location:</strong> URL ou caminho do repositório que você deseja clonar. Pode ser uma URL HTTP/HTTPS, SSH ou um caminho local.</li>
-        <li><strong>path/to/directory:</strong> Diretório onde o clone será armazenado. Se omitido, o Git usará o nome do repositório.</li>
+        <li><strong>remote_repository_location:</strong> URL ou caminho do repositório que você deseja clonar.</li>
+        <li><strong>path/to/directory:</strong> Diretório onde o clone será armazenado.</li>
     </ul>
 
     <p class="p-styled spaced-p">
@@ -114,8 +112,8 @@
     <h4>Criação de Repositório Local</h4>
 
     <p class="p-styled spaced-p">
-        <strong>git init:</strong> Inicia um novo repositório Git em um diretório existente. Cria a pasta <code>.git</code>, mas não traz arquivos remotos.<br>
-        <strong>git clone:</strong> Copia um repositório remoto inteiro, incluindo histórico de commits e estrutura de diretórios.
+        <strong>git init:</strong> Inicia um novo repositório Git em um diretório existente.<br>
+        <strong>git clone:</strong> Copia um repositório remoto inteiro.
     </p>
 
     <h4>Ponto de Partida</h4>
@@ -128,23 +126,16 @@
     <h4>Configuração Remota</h4>
 
     <p class="p-styled spaced-p">
-        <strong>git init:</strong> Não configura automaticamente um repositório remoto. É necessário usar <code>git remote add origin &lt;url&gt;</code>.<br>
+        <strong>git init:</strong> Não configura automaticamente um repositório remoto.<br>
         <strong>git clone:</strong> Já configura automaticamente o repositório remoto como <strong>origin</strong>.
     </p>
 
-    <p class="p-styled spaced-p">
-        Apesar das diferenças, ambos os comandos estabelecem o início de um repositório Git local, cada um adequado a um cenário específico.
-    </p>
 
 
 <!-- ============================
          FOOTER
 ============================= -->
 <footer class="footer">
-
-    <div class="footer-copyright">
-        © 2025 Curso de Git. Todos os direitos reservados.
-    </div>
 
     <div class="footer-flex">
         <nav class="footer-nav">
@@ -167,7 +158,7 @@
     <div class="footer-badges">
         <a href="https://pages.github.com/" class="github-link">
             <span>🐙 GitHub Pages</span>
-            <img src="/static/images/github-mark-white.png" alt="GitHub Logo" class="footer-logo">
+            <img src="../../static/images/github-mark-white.png" alt="GitHub Logo" class="footer-logo">
         </a>
 
         <a href="https://jigsaw.w3.org/css-validator/check/referer" class="w3c-link">
@@ -177,13 +168,12 @@
 
 </footer>
 
-
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
 <script>Prism.highlightAll();</script>
-<script src="/static/js/git-course-functions.js"></script>
+
+<script src="../../static/js/git-course-functions.js"></script>
 
 </body>
 </html>
-

@@ -1,46 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <script>
-        const API_URL = 'https://api.git-learn.com.br';
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git Status</title>
 
-    <link rel="stylesheet" href="/assets/css/gitcourse.css">
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="../../assets/css/gitcourse.css">
     
+    <!-- PrismJS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
-    
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
-    <script src="/static/js/config.js"></script>
+    <!-- Config da API -->
+    <script src="../../static/js/config.js"></script>
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-        // Verificação de login
+        /* --- Autenticação --- */
         const token = localStorage.getItem('access_token');
         if (!token) {
-            window.location.href = '/landing.html';
+            window.location.href = '../../landing.html';
             return;
         }
 
-        // Logout
+        /* --- Logout --- */
         const logoutBtn = document.getElementById('logoutButton');
         if (logoutBtn) {
             logoutBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 localStorage.removeItem('access_token');
-                window.location.href = '/landing.html';
+                window.location.href = '../../landing.html';
             });
         }
 
-        // Marcar como concluído
+        /* --- Botão Concluído --- */
         const btn = document.getElementById("markCompletedButton");
         if (btn) {
             btn.addEventListener("click", async () => {
@@ -88,53 +87,42 @@
 
     <p class="p-styled spaced-p">
         O comando <code class="language-bash">git status</code> é uma ferramenta fundamental no Git. Ele ajuda você a acompanhar
-        o estado do diretório de trabalho e da área de preparação (stage). O comando informa quais arquivos foram alterados,
-        quais estão preparados para o próximo commit e quais ainda não estão sendo rastreados.
+        o estado do diretório de trabalho e da área de preparação (stage).
     </p>
 
     <h4>Estados dos Arquivos no Git</h4>
 
-    <p>Os arquivos em um repositório Git podem estar em um dos seguintes estados:</p>
+    <p>Os arquivos podem estar nos seguintes estados:</p>
 
     <ul>
-        <li><strong>Não rastreado (untracked)</strong>: Arquivo novo que ainda não faz parte do repositório. O Git sabe que ele existe, mas não o acompanha.</li>
-
-        <li><strong>Não modificado (unmodified)</strong>: Arquivo já commitado e sem alterações desde o último commit.</li>
-
-        <li><strong>Modificado (modified)</strong>: Arquivo existente no repositório que sofreu alterações, mas ainda não foi preparado para commit.</li>
-
-        <li><strong>Preparado (staged)</strong>: Arquivo que passou pelo comando <code>git add</code> e está pronto para ser commitado.</li>
+        <li><strong>Não rastreado (untracked)</strong></li>
+        <li><strong>Não modificado (unmodified)</strong></li>
+        <li><strong>Modificado (modified)</strong></li>
+        <li><strong>Preparado (staged)</strong></li>
     </ul>
 
     <p class="p-styled spaced-p">
-        É essencial compreender esses estados para entender o fluxo de trabalho do Git. O comando <code>git status</code> é a ferramenta
-        que permite visualizar exatamente o que está acontecendo com os arquivos do seu repositório.
+        O comando <code>git status</code> mostra exatamente o que está acontecendo no repositório.
     </p>
 
-    <img src="/static/images/git-status.webp" 
+    <img src="../../static/images/git-status.webp" 
          alt="Exemplo do comando git status mostrando arquivos untracked" 
          class="img-full">
 
     <p class="image-description">
         A imagem mostra arquivos não rastreados (untracked) e indica que nenhum arquivo está preparado para commit.
-        Usando <code>git add</code>, podemos mover arquivos modificados para o estado de preparação (staged).
     </p>
 
     <p class="p-styled spaced-p">
-        A imagem anterior apresenta uma coleção de arquivos não rastreados. Ao utilizar o comando
-        <code class="language-bash">git add</code>, podemos selecionar esses arquivos para serem preparados e incluídos no próximo commit,
-        permitindo um controle  mais organizado e eficiente das alterações realizadas no projeto. 
+        Usando <code>git add</code>, podemos mover arquivos modificados para o estado de preparação (staged).
     </p>
+
 
 
 <!-- ============================
          FOOTER
 ============================= -->
 <footer class="footer">
-
-    <div class="footer-copyright">
-        © 2025 Curso de Git. Todos os direitos reservados.
-    </div>
 
     <div class="footer-flex">
         <nav class="footer-nav">
@@ -157,7 +145,7 @@
     <div class="footer-badges">
         <a href="https://pages.github.com/" class="github-link">
             <span>🐙 GitHub Pages</span>
-            <img src="/static/images/github-mark-white.png" alt="GitHub Logo" class="footer-logo">
+            <img src="../../static/images/github-mark-white.png" alt="GitHub Logo" class="footer-logo">
         </a>
 
         <a href="https://jigsaw.w3.org/css-validator/check/referer" class="w3c-link">
@@ -167,13 +155,12 @@
 
 </footer>
 
-
 <!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
 <script>Prism.highlightAll();</script>
-<script src="/static/js/git-course-functions.js"></script>
+
+<script src="../../static/js/git-course-functions.js"></script>
 
 </body>
 </html>
-

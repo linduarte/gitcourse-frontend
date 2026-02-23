@@ -1,6 +1,6 @@
 /* Fundo exclusivo do prefácio */
 body.prefacio {
-    background: url("/static/images/waves.webp") center/cover no-repeat fixed;
+    background: url("../../static/images/waves.webp") center/cover no-repeat fixed;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }

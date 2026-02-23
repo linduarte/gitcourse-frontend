@@ -5,28 +5,73 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git Init</title>
 
-    <link rel="stylesheet" href="/assets/css/gitcourse.css">
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="../../assets/css/gitcourse.css">
 
+    <!-- Prism -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Victor+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 
-    <script src="/static/js/config.js"></script>
+    <!-- Configuração global -->
+    <script src="../../static/js/config.js"></script>
+
+    <!-- Autenticação + Concluído -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
+
         const token = localStorage.getItem('access_token');
         if (!token) {
-            window.location.href = '/landing.html';
+            window.location.href = '../../landing.html';
             return;
         }
+
         const logoutBtn = document.getElementById('logoutButton');
         if (logoutBtn) {
             logoutBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 localStorage.removeItem('access_token');
-                window.location.href = '/landing.html';
+                window.location.href = '../../landing.html';
+            });
+        }
+
+        const btn = document.getElementById("markCompletedButton");
+        if (btn) {
+            btn.addEventListener("click", async () => {
+                const origText = btn.innerText;
+                btn.disabled = true;
+                btn.innerText = 'Enviando...';
+
+                try {
+                    const response = await fetch(`${API_URL}/progress/`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify({
+                            topic_id: btn.dataset.topicId,
+                            completed: true,
+                            feedback: 'Muito bom este tópico!'
+                        }),
+                    });
+
+                    if (response.ok) {
+                        btn.innerText = 'Concluído ✓';
+                        btn.classList.add('completed');
+                    } else {
+                        btn.disabled = false;
+                        btn.innerText = origText;
+                        alert('Erro ao marcar o progresso');
+                    }
+                } catch (err) {
+                    btn.disabled = false;
+                    btn.innerText = origText;
+                    alert('Erro de conexão ao marcar progresso');
+                }
             });
         }
     });
@@ -34,7 +79,7 @@
 
     <!-- Mermaid -->
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({ startOnLoad: true });</script>
+    <script>mermaid.initialize({ startOnLoad: true, theme: "default" });</script>
 </head>
 
 <body class="intro-page">
@@ -59,9 +104,9 @@
             C --> D[Branch inicial: main]
     </div>
 
-    <img src="/static/images/git_init_red.webp" alt="Terminal mostrando o comando git init" class="img-full">
+    <img src="../../static/images/git_init_red.webp" alt="Terminal mostrando o comando git init" class="img-full">
 
-    <p class="image-description">
+    <p class="p-styled spaced-p">
         A imagem mostra a criação de um diretório chamado <strong>projeto-a</strong> e a execução do comando
         <code class="language-bash">git init</code>. Após o comando, o Git cria automaticamente a branch inicial
         chamada <strong>main</strong> (ou <strong>master</strong> em versões antigas). O ícone de “ramo” indica que o
@@ -91,11 +136,11 @@
     </p>
 
 
-<footer class="footer">
 
-    <div class="footer-copyright">
-        © 2025 Curso de Git. Todos os direitos reservados.
-    </div>
+<!-- ============================
+         FOOTER
+============================= -->
+<footer class="footer">
 
     <div class="footer-flex">
         <nav class="footer-nav">
@@ -118,7 +163,7 @@
     <div class="footer-badges">
         <a href="https://pages.github.com/" class="github-link">
             <span>🐙 GitHub Pages</span>
-            <img src="/static/images/github-mark-white.png" alt="GitHub Logo" class="footer-logo">
+            <img src="../../static/images/github-mark-white.png" alt="GitHub Logo" class="footer-logo">
         </a>
         <a href="https://jigsaw.w3.org/css-validator/check/referer" class="w3c-link">
             <img src="https://jigsaw.w3.org/css-validator/images/vcss"
@@ -128,12 +173,12 @@
 
 </footer>
 
-
+<!-- Scripts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-bash.min.js"></script>
 <script>Prism.highlightAll();</script>
-<script src="/static/js/git-course-functions.js"></script>
+
+<script src="../../static/js/git-course-functions.js"></script>
 
 </body>
 </html>
-
