@@ -6,10 +6,10 @@
   <title>Dashboard - Git Course</title>
 
   <!-- CSS principal do curso -->
-  <link rel="stylesheet" href="./assets/css/gitcourse.css">
+  <link rel="stylesheet" href="assets/css/gitcourse.css">
 
   <!-- CSS específico da dashboard -->
-  <link rel="stylesheet" href="./static/css/pages/dashboard.css">
+  <link rel="stylesheet" href="static/css/pages/dashboard.css">
 </head>
 
 <body>
@@ -18,8 +18,8 @@
   <aside class="sidebar">
     <h2>Git Course</h2>
     <ul>
-      <li><a href="./dashboard.html">🏠 Dashboard</a></li>
-      <li><a href="./curso/git-course/progress.html">📊 Progresso</a></li>
+      <li><a href="dashboard.html">🏠 Dashboard</a></li>
+      <li><a href="curso/git-course/progress.html">📊 Progresso</a></li>
       <li id="menuContinue">⏭ Continuar</li>
       <li id="menuLastTopic">📌 Último tópico</li>
       <li id="menuLogout">🚪 Sair</li>
@@ -56,7 +56,7 @@
   </main>
 
   <!-- CONFIG DA API -->
-  <script src="./static/js/config.js"></script>
+  <script src="static/js/config.js"></script>
 
   <!-- MÓDULO GLOBAL -->
   <script type="module">
@@ -79,22 +79,22 @@
        MAPA DOS ARQUIVOS HTML DO CURSO
     ============================================================ */
     const topicFiles = {
-      1: "./curso/git-course/1a-prefacio.html",
-      2: "./curso/git-course/2-introduction.html",
-      3: "./curso/git-course/3-git-config.html",
-      4: "./curso/git-course/4-hosting.html",
-      5: "./curso/git-course/5-connect.html",
-      6: "./curso/git-course/6-git-clone.html",
-      7: "./curso/git-course/7-git-status.html",
-      8: "./curso/git-course/8-git-add.html",
-      9: "./curso/git-course/9-git-commit.html",
-      10: "./curso/git-course/10-feature_req.html",
-      11: "./curso/git-course/11-branch.html",
-      12: "./curso/git-course/12-branch-merge.html",
-      13: "./curso/git-course/13-git-diff.html",
-      14: "./curso/git-course/14-undo-changes.html",
-      15: "./curso/git-course/15-git-init.html",
-      16: "./curso/git-course/16-git-workflows.html"
+      1: "curso/git-course/1a-prefacio.html",
+      2: "curso/git-course/2-introduction.html",
+      3: "curso/git-course/3-git-config.html",
+      4: "curso/git-course/4-hosting.html",
+      5: "curso/git-course/5-connect.html",
+      6: "curso/git-course/6-git-clone.html",
+      7: "curso/git-course/7-git-status.html",
+      8: "curso/git-course/8-git-add.html",
+      9: "curso/git-course/9-git-commit.html",
+      10: "curso/git-course/10-feature_req.html",
+      11: "curso/git-course/11-branch.html",
+      12: "curso/git-course/12-branch-merge.html",
+      13: "curso/git-course/13-git-diff.html",
+      14: "curso/git-course/14-undo-changes.html",
+      15: "curso/git-course/15-git-init.html",
+      16: "curso/git-course/16-git-workflows.html"
     };
 
     /* ============================================================
@@ -102,7 +102,7 @@
     ============================================================ */
     document.getElementById('menuLogout').addEventListener('click', () => {
       localStorage.clear();
-      window.location.href = "./auth/login.html";
+      window.location.href = "auth/login.html";
     });
 
     /* ============================================================
