@@ -4,32 +4,32 @@
   <meta charset="UTF-8">
   <title>Tópicos do Curso</title>
 
-  <link rel="stylesheet" href="/static/css/components/style.css">
+  <!-- CSS correto -->
+  <link rel="stylesheet" href="../../assets/css/gitcourse.css">
+  <link rel="stylesheet" href="../../assets/css/nav-menu.css"> <!-- quando existir -->
 </head>
 
 <body>
 
-<div id="nav-menu"></div>
-<script src="/gitcourse-frontend/scripts/load-menu.js"></script>
-
+  <!-- Menu dinâmico -->
+  <div id="nav-menu"></div>
+  <script src="../../scripts/load-menu.js"></script>
 
   <main class="container">
     <h1>Tópicos do Curso</h1>
     <ul id="topics-list"></ul>
   </main>
 
-<script src="../../static/js/config.js"></script>
-<script type="module">
-    import { protectRoute, loadNavbar } from "../../static/js/git-course-functions.js";
+  <!-- JS correto -->
+  <script src="../../scripts/config.js"></script>
 
+  <script type="module">
+    import { protectRoute, loadNavbar } from "../../scripts/git-course-functions.js";
     protectRoute();
     loadNavbar();
-</script>
+  </script>
 
-<script src="../../static/js/modules/topics.js"></script>
-
+  <script src="../../scripts/modules/topics.js"></script>
 
 </body>
-<div id="navbar"></div>
 </html>
-
