@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Tópicos do Curso</title>
+
+  <link rel="stylesheet" href="/static/css/components/style.css">
+</head>
+
+<body>
+
+  {% include "nav-menu.html" %}
+
+  <main class="container">
+    <h1>Tópicos do Curso</h1>
+    <ul id="topics-list"></ul>
+  </main>
+
+<script src="../../static/js/config.js"></script>
+<script type="module">
+    import { protectRoute, loadNavbar } from "../../static/js/git-course-functions.js";
+
+    protectRoute();
+    loadNavbar();
+</script>
+
+<script src="../../static/js/modules/topics.js"></script>
+
+
+</body>
+<div id="navbar"></div>
+</html>
+
