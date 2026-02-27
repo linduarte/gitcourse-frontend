@@ -1,11 +1,16 @@
-const API_URL = "https://gitcourse-backend.onrender.com"; // ou seu backend local
+import axios from "axios";
 
-export async function getTopics() {
-  const res = await fetch(`${API_URL}/topics/`);
-  return res.json();
-}
+export const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL,
+});
 
-export async function getTopic(slug) {
-  const res = await fetch(`${API_URL}/topics/${slug}`);
-  return res.json();
-}
+// Interceptor para enviar token automaticamente
+api.interceptors.request.use((config) => {
+  const token = localStorage.getItem("token");
+
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+
+  return config;
+});
