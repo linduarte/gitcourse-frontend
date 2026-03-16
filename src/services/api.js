@@ -4,15 +4,26 @@ const api = axios.create({
   baseURL: 'http://191.252.204.249:8000',
 });
 
-// Este "Interceptor" é o segredo: ele pega o token do seu navegador 
-// e coloca no cabeçalho Authorization de cada chamada automaticamente.
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+// Padronizando o nome da exportação
+export const getTopic = async (slug) => {
+  try {
+    const response = await api.get(`/topics/${slug}`);
+    return response.data;
+  } catch (error) {
+    console.error("Erro na chamada da API:", error);
+    throw error;
   }
-  return config;
-});
+};
 
-export { api };
 export default api;
+
+// Busca a LISTA de todos os tópicos
+export const getTopics = async () => {
+  try {
+    const response = await api.get('/topics'); // Rota que retorna o array de tópicos
+    return response.data;
+  } catch (error) {
+    console.error("Erro ao buscar lista de tópicos:", error);
+    throw error;
+  }
+};

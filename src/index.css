@@ -13,6 +13,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* No novo conteúdo do index.css */
+body {
+    background: url('/static/images/waves.webp') center/cover no-repeat fixed !important;
+}
+
 a {
   font-weight: 500;
   color: #646cff;

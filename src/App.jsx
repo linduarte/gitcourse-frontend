@@ -4,7 +4,7 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 
 import Home from "./pages/Home";
 import Topics from "./pages/Topics";
-import Topic from "./pages/Topic";
+import Topic from "./pages/Topic"; // <--- O componente importado se chama Topic
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 
@@ -13,14 +13,16 @@ function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-
-          {/* Rota pública */}
+          {/* 1. Rota de Login (importante para o sistema) */}
           <Route path="/login" element={<Login />} />
 
-          {/* Rota pública (se quiser manter a Home aberta) */}
+          {/* 2. Rota de Teste ABERTA (Mudamos TopicDetail para Topic) */}
+          <Route path="/topics/:slug" element={<Topic />} />
+
+          {/* 3. Rota Home */}
           <Route path="/" element={<Home />} />
 
-          {/* Rotas protegidas */}
+          {/* 4. Rotas protegidas */}
           <Route
             path="/dashboard"
             element={
@@ -31,19 +33,10 @@ function App() {
           />
 
           <Route
-            path="/topics"
+            path="/topics-list" // Mudei levemente o nome aqui para não dar conflito
             element={
               <ProtectedRoute>
                 <Topics />
-              </ProtectedRoute>
-            }
-          />
-
-          <Route
-            path="/topics/:slug"
-            element={
-              <ProtectedRoute>
-                <Topic />
               </ProtectedRoute>
             }
           />
